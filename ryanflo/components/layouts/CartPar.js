@@ -14,7 +14,7 @@ export default function CartPar({ open, setOpen, listCart, setDeletedItemCart })
 
   async function handleDeleteUserCart(i, email) {
     try {
-      const resDeleteItemCart = await fetch(`ryanflo.vercel.app/api/cart`, {
+      const resDeleteItemCart = await fetch(`./api/cart`, {
         method: "PATCH",
         headers: {
           "content-type": "application.json"
@@ -140,7 +140,7 @@ export default function CartPar({ open, setOpen, listCart, setDeletedItemCart })
                       <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
                       <div className="mt-6">
                         <Link
-                          href={"ryanflo.vercel.app/checkout"}
+                          href={"./checkout"}
                           onClick={() => setOpen(false)}
                           className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
                         >

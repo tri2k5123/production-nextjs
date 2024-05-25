@@ -20,7 +20,7 @@ export default function AdMenuItem() {
     }, [isUpdated])
     async function getProduct() {
         try {
-            const resGetProduct = await fetch("ryanflo.vercel.app/api/menu-item", {
+            const resGetProduct = await fetch("./api/menu-item", {
                 method: "GET",
             })
             const { listProduct } = await resGetProduct.json();

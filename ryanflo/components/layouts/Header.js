@@ -25,7 +25,7 @@ function Header() {
     }, [])
     async function getCategories() {
         try {
-            const resGetCategory = await fetch("ryanflo.vercel.app/api/category", {
+            const resGetCategory = await fetch("./api/category", {
                 method: "GET"
             })
             const {listCategories} = await resGetCategory.json();
@@ -44,7 +44,7 @@ function Header() {
                 <div className="flex items-center justify-between flex-1">
                     <div className="text-color-text text-xs flex items-center">
                         {listCategories.map((navItem, index) => (
-                            <Link key={index} href={`ryanflo.vercel.app/collections/${navItem.category}`} className="my-0 mx-3 px-0 py-4 relative block text-color-text circle hover:before:block">{navItem.name}</Link>
+                            <Link key={index} href={`./collections/${navItem.category}`} className="my-0 mx-3 px-0 py-4 relative block text-color-text circle hover:before:block">{navItem.name}</Link>
                         ))}
                     </div>
                 </div>
@@ -69,7 +69,7 @@ function Header() {
                                         <div className="p-4">
                                             {session?.user?.role === "user" ? (
                                                 <>
-                                                    <Link href={"ryanflo.vercel.app/profile-user"} className="items-center group relative flex gap-x-6 rounded-lg hover:bg-gray-50">
+                                                    <Link href={"./profile-user"} className="items-center group relative flex gap-x-6 rounded-lg hover:bg-gray-50">
                                                         <div className="mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                                                             <UserCircleIcon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
                                                         </div>
@@ -81,7 +81,7 @@ function Header() {
                                                             {/* <p className="mt-1 text-gray-600">Records contain all the information you provide to us</p> */}
                                                         </div>
                                                     </Link>
-                                                    <Link href={"ryanflo.vercel.app/detail-history-order"} className="items-center group relative flex gap-x-6 rounded-lg hover:bg-gray-50">
+                                                    <Link href={"./detail-history-order"} className="items-center group relative flex gap-x-6 rounded-lg hover:bg-gray-50">
                                                         <div className="mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                                                             <ClipboardDocumentListIcon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
                                                         </div>
@@ -95,7 +95,7 @@ function Header() {
 
                                                 </>
                                             ) : (
-                                                <Link href={"ryanflo.vercel.app/admin/profile-admin"} className="items-center group relative flex gap-x-6 rounded-lg hover:bg-gray-50">
+                                                <Link href={"./admin/profile-admin"} className="items-center group relative flex gap-x-6 rounded-lg hover:bg-gray-50">
                                                     <div className="mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                                                         <ClipboardDocumentListIcon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
                                                     </div>

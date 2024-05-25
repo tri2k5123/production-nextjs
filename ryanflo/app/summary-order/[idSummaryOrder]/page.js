@@ -13,7 +13,7 @@ export default function SummaryOrderPage({ params }) {
     }, [params.idSummaryOrder])
     async function getSummaryOrder() {
         try {
-            const resGetSummaryOrder = await fetch(`http://localhost:3000/api/order/${params.idSummaryOrder}`, {
+            const resGetSummaryOrder = await fetch(`./api/order/${params.idSummaryOrder}`, {
                 method: "GET",
             })
             const { order } = await resGetSummaryOrder.json()

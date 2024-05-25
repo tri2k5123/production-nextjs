@@ -7,7 +7,7 @@ export default function DetailOrder({ listOrder }) {
     const feeShipping = useRef(25000);
     async function handleDeleteOrder(id) {
         try {
-            const resCancelOrder = await fetch(`ryanflo.vercel.app/api/order?id=${id}`, {
+            const resCancelOrder = await fetch(`./api/order?id=${id}`, {
                 method: "DELETE"
             })
             if (resCancelOrder.ok) {
@@ -47,7 +47,7 @@ export default function DetailOrder({ listOrder }) {
                                     </div>
                                 </div>
                                 <div>
-                                    <Link href={`ryanflo.vercel.app/summary-order/${itemOrder._id}`} className="text-[#111827] py-2 px-2.5 border border-[#6B7280] rounded">View Order</Link>
+                                    <Link href={`./summary-order/${itemOrder._id}`} className="text-[#111827] py-2 px-2.5 border border-[#6B7280] rounded">View Order</Link>
                                 </div>
                             </div>
                             {itemOrder.orderInfo.map((item, i) => (
@@ -73,7 +73,7 @@ export default function DetailOrder({ listOrder }) {
                                     <div className="mt-4 flex justify-between items-center">
                                         <div className=""></div>
                                         <div>
-                                            <Link href={`ryanflo.vercel.app/product/${item.id}`}>
+                                            <Link href={`./product/${item.id}`}>
                                                 <div className="inline-block py-1.5 px-3 text-[#4F46E5] cursor-pointer">View product</div>
 
                                             </Link>

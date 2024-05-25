@@ -19,7 +19,7 @@ export default  function RegisterForm({ open, setOpen, setLoginOpen }) {
             return;
         }
         try {
-            const resProfile = await fetch("ryanflo.vercel.app/api/profile", {
+            const resProfile = await fetch("./api/profile", {
                 method: "POST",
                 headers: {
                     "Content-type": "application/json"

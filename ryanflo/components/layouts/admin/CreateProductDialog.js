@@ -26,7 +26,7 @@ export default function CreateProductDialog({ open, setOpen, setIsUpdated }) {
 
     async function getCategory() {
         try {
-            const resGetCategory = await fetch("ryanflo.vercel.app/api/category", {
+            const resGetCategory = await fetch("./api/category", {
                 method: 'GET'
             })
             const { listCategories } = await resGetCategory.json();
@@ -61,7 +61,7 @@ export default function CreateProductDialog({ open, setOpen, setIsUpdated }) {
         const listColor = divideIntoArray(colors);
         const listImg = divideIntoArray(imgs);
         try {
-            const resCreateProduct = await fetch("ryanflo.vercel.app/api/menu-item", {
+            const resCreateProduct = await fetch("./api/menu-item", {
                 method: "POST",
                 headers: {
                     "Content-type": "application/json"
