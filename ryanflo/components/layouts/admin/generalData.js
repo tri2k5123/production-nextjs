@@ -3,12 +3,6 @@ export const sizes = ["S", "M", "L", "XL"]
 export function divideIntoArray(items) {
     return items.split(',');
 }
-// {checkedSizes.map((checkedSize, i) => (
-//     <div key={i}>
-//         {sizes[checkedSize]}
-//     </div>
-// ))}
-
 export function figureOutInitialPrice(price, percentPrice) {
     const basePercent = 100 - percentPrice
     const initialPrice = price * 100 / basePercent

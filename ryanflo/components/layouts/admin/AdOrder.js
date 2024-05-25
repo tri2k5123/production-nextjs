@@ -1,6 +1,5 @@
 "use client";
 
-import { CheckIcon } from "@heroicons/react/20/solid";
 import Image from "next/image";
 import Link from "next/link";
 import { addDotToPrice, dbTimeForHuman, sizes } from "./generalData";
@@ -13,7 +12,7 @@ export default function AdOrder({ orders }) {
 
     async function handleFinishedOrder(id, email, total) {
         try {
-            const resCreateHistoryOrder = await fetch(`http://localhost:3000/api/history-order`, {
+            const resCreateHistoryOrder = await fetch(`ryanflo.vercel.app/api/history-order`, {
                 method: "POST",
                 headers: {
                     "content-type": "application/json"
@@ -21,7 +20,7 @@ export default function AdOrder({ orders }) {
                 body: JSON.stringify({ email, total })
             })
             if (resCreateHistoryOrder.ok) {
-                const resDeleteOrder = await fetch(`http://localhost:3000/api/order?id=${id}`, {
+                const resDeleteOrder = await fetch(`ryanflo.vercel.app/api/order?id=${id}`, {
                     method: "DELETE"
                 })
                 if (resDeleteOrder.ok) {
@@ -35,7 +34,7 @@ export default function AdOrder({ orders }) {
     }
     async function handleCancerOrder(id) {
         try {
-            const resCancelOrder = await fetch(`http://localhost:3000/api/order?id=${id}`, {
+            const resCancelOrder = await fetch(`ryanflo.vercel.app/api/order?id=${id}`, {
                 method: "DELETE"
             })
             if (resCancelOrder.ok) {
@@ -74,7 +73,7 @@ export default function AdOrder({ orders }) {
                                     </div>
                                 </div>
                                 <div>
-                                    <Link href={`/summary-order/${itemOrder._id}`} className="text-[#111827] py-2 px-2.5 border border-[#6B7280] rounded">View Order</Link>
+                                    <Link href={`ryanflo.vercel.app/summary-order/${itemOrder._id}`} className="text-[#111827] py-2 px-2.5 border border-[#6B7280] rounded">View Order</Link>
                                 </div>
                             </div>
                             {itemOrder.orderInfo.map((itemOrderInfo, i) => (

@@ -11,7 +11,7 @@ export default function ProductPage({ params }) {
     }, [params.idProduct])
     async function getProduct() {
         try {
-            const resGetProduct = await fetch(`http://localhost:3000/api/menu-item/${params.idProduct}`, {
+            const resGetProduct = await fetch(`ryanflo.vercel.app/api/menu-item/${params.idProduct}`, {
                 method: "GET"
             })
             const { product } = await resGetProduct.json();

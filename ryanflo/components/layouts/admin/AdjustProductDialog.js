@@ -1,10 +1,7 @@
 "use client";
 import { Fragment, useEffect, useRef, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { ExclamationTriangleIcon, CheckIcon, CheckBadgeIcon, CheckCircleIcon } from '@heroicons/react/24/outline'
-import Link from 'next/link'
 import { sizes, divideIntoArray, figureOutInitialPrice } from './generalData';
-import { useRouter } from 'next/navigation';
 
 
 
@@ -25,7 +22,7 @@ export default function AdjustProductDialog({ open, setOpen, data, setIsUpdated 
     const [listCategory, setListCategory] = useState([]);
     async function getCategory() {
         try {
-            const resGetCategory = await fetch("http://localhost:3000/api/category", {
+            const resGetCategory = await fetch("ryanflo.vercel.app/api/category", {
                 method: 'GET'
             })
             const { listCategories } = await resGetCategory.json();
@@ -52,7 +49,7 @@ export default function AdjustProductDialog({ open, setOpen, data, setIsUpdated 
         const listImg = divideIntoArray(imgs);
         const initialPrice = figureOutInitialPrice(price, percentPrice);
         try {
-            const resUpdateProduct = await fetch("http://localhost:3000/api/menu-item", {
+            const resUpdateProduct = await fetch("ryanflo.vercel.app/api/menu-item", {
                 method: "PUT",
                 headers: {
                     "Content-type": "application/json"
@@ -70,7 +67,7 @@ export default function AdjustProductDialog({ open, setOpen, data, setIsUpdated 
     }
     async function handleDeleteProduct() {
         try {
-            const resDeleteProduct = await fetch(`http://localhost:3000/api/menu-item?id=${id}`, {
+            const resDeleteProduct = await fetch(`ryanflo.vercel.app/api/menu-item?id=${id}`, {
                 method: "DELETE",
             })
             if(resDeleteProduct.ok) {

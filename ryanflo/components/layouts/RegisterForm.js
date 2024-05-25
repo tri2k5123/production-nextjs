@@ -14,13 +14,12 @@ export default  function RegisterForm({ open, setOpen, setLoginOpen }) {
         if(!email || !password) {
             setError("All fields are necessary.");
             return;
+        } else if(password < 8) {
+            setError("8 characters minimum");
+            return;
         }
-        // if(password < 8) {
-        //     setError("6 characters minimum");
-        //     return;
-        // }
         try {
-            const resProfile = await fetch("api/profile", {
+            const resProfile = await fetch("ryanflo.vercel.app/api/profile", {
                 method: "POST",
                 headers: {
                     "Content-type": "application/json"

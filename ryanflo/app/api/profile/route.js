@@ -40,8 +40,6 @@ export async function POST(req) {
         const user = users.find(user => {
             return user.email == email;
         })
-        console.log(user)
-        
         if(user) {
             return NextResponse.json(
                 { message: "user already exist." },

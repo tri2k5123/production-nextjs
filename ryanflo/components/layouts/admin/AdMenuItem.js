@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import CreateProductDialog from "./CreateProductDialog";
 import AdjustProductDialog from "./AdjustProductDialog";
 import { addDotToPrice } from "./generalData";
-import { useRouter } from "next/navigation";
 
 
 export default function AdMenuItem() {
@@ -12,8 +11,6 @@ export default function AdMenuItem() {
     const [showAdjustDialog, setShowAdjustDialog] = useState(false);
     const [ isUpdated, setIsUpdated ] = useState(false);
 
-
-    
     const [ dataAdjust, setDataAdjust ] = useState({});
     
     const [listProduct, setListProduct] = useState([]);
@@ -23,7 +20,7 @@ export default function AdMenuItem() {
     }, [isUpdated])
     async function getProduct() {
         try {
-            const resGetProduct = await fetch("http://localhost:3000/api/menu-item", {
+            const resGetProduct = await fetch("ryanflo.vercel.app/api/menu-item", {
                 method: "GET",
             })
             const { listProduct } = await resGetProduct.json();

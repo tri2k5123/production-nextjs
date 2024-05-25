@@ -1,5 +1,5 @@
 "use client"
-import { memo, useContext, useEffect, useMemo, useRef, useState } from "react";
+import { memo, useContext, useEffect, useState } from "react";
 import { StateGlobalContext } from "@/components/StateGlobal";
 
 import SummaryOrder from "@/components/layouts/SummaryOrder";
@@ -8,7 +8,7 @@ import { addDotToPrice, sizes } from "./admin/generalData";
 import Link from "next/link";
 
 function ListOrder() {
-    const { addedCart, deletedItemCart, setDeletedItemCart } = useContext(StateGlobalContext);
+    const { addedCart, deletedItemCart } = useContext(StateGlobalContext);
 
     const { data: session } = useSession();
     const [userCart, setUserCart] = useState();
@@ -18,7 +18,7 @@ function ListOrder() {
     }, [addedCart, deletedItemCart])
     async function getUserCart() {
         try {
-            const resGetUserCart = await fetch(`http://localhost:3000/api/cart?email=${session?.user?.email}`, {
+            const resGetUserCart = await fetch(`ryanflo.vercel.app/api/cart?email=${session?.user?.email}`, {
                 method: "GET",
             })
             const { userCart } = await resGetUserCart.json();
@@ -60,7 +60,7 @@ function ListOrder() {
                                 <p className="mt-6 text-base leading-7 text-gray-600">Take a look at our product list and order now.</p>
                                 <div className="mt-10 flex items-center justify-center gap-x-6">
                                     <Link
-                                        href={"/collections/all"}
+                                        href={"ryanflo.vercel.app/collections/all"}
                                         className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                                     >
                                         Go to product list

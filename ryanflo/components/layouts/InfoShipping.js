@@ -1,17 +1,13 @@
 "use client";
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import { StateGlobalContext } from "@/components/StateGlobal";
 import DialogSuccess from "./DialogSuccess";
 import { useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
-
 
 export default function InfoShipping({ matchUserInfo }) {
     const { data: session } = useSession();
     const { addedCart, deletedItemCart, setDeletedItemCart, setOpenFormRegister } = useContext(StateGlobalContext);
-
-    const route = useRouter();
 
     const [ openBuySuccess, setOpenBuySuccess ] = useState(false);
 
@@ -26,7 +22,7 @@ export default function InfoShipping({ matchUserInfo }) {
     }, [addedCart, deletedItemCart])
     async function getUserCart() {
         try {
-            const resGetUserCart = await fetch(`http://localhost:3000/api/cart?email=${matchUserInfo?.email}`, {
+            const resGetUserCart = await fetch(`ryanflo.vercel.app/api/cart?email=${matchUserInfo?.email}`, {
                 method: "GET"
             })
             const { userCart } = await resGetUserCart.json();
@@ -54,7 +50,7 @@ export default function InfoShipping({ matchUserInfo }) {
                 ]
             }
             try {
-                const resCreateOrder = await fetch("http://localhost:3000/api/order", {
+                const resCreateOrder = await fetch("ryanflo.vercel.app/api/order", {
                     method: "POST",
                     headers: {
                         "content-type": "application/json"
@@ -62,7 +58,7 @@ export default function InfoShipping({ matchUserInfo }) {
                     body: JSON.stringify({ data })
                 })
                 if(resCreateOrder.ok) {
-                    const resDeleteUserCart = await fetch(`http://localhost:3000/api/cart?id=${userCart?._id}`, {
+                    const resDeleteUserCart = await fetch(`ryanflo.vercel.app/api/cart?id=${userCart?._id}`, {
                         method: "DELETE",
                     })
                     if(resDeleteUserCart.ok) {
@@ -142,7 +138,7 @@ export default function InfoShipping({ matchUserInfo }) {
                     <div className="mb-5">
                         <label className="flex items-center border border-solid border-[#D9D9D9] rounded-2xl py-4 px-5 cursor-pointer transition-all opacity-60 payment-method-item__active">
                             <span className="min-w-9 max-w-14 max-h-9">
-                                <img src="/asset/img/COD.svg" className="my-0 mx-6"/>
+                                <img src="./asset/img/COD.svg" className="my-0 mx-6"/>
                             </span>
                             <span className="font-serif font-sm font-normal text-[#231f20] ml-5">
                                 <p>Cash On Delivery (COD)</p>

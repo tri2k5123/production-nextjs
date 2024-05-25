@@ -2,7 +2,6 @@
 import { Fragment, useRef, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { signIn } from 'next-auth/react';
-import Loader from './loader/Loader';
 import { useRouter } from 'next/navigation';
 
 export default function LoginForm({ open, setOpen, setRegisOpen }) {
@@ -23,7 +22,7 @@ export default function LoginForm({ open, setOpen, setRegisOpen }) {
                 redirect: false,
             })
             if(resLogin.ok && email == "admin@gmail.com") {
-                route.push("/admin/orders");
+                route.push("ryanflo.vercel.app/admin/orders");
             }
             if (resLogin.error) {
                 setError("Invalid Credentials");
@@ -31,8 +30,6 @@ export default function LoginForm({ open, setOpen, setRegisOpen }) {
             }
             setOpen(false);
         } catch (error) {
-            console.log(error)
-
         }
     }
 
@@ -99,11 +96,6 @@ export default function LoginForm({ open, setOpen, setRegisOpen }) {
                                                     <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
                                                         Password
                                                     </label>
-                                                    {/* <div className="text-sm">
-                                                            <a href="#" className="font-semibold text-indigo-600 hover:text-indigo-500">
-                                                                Forgot password?
-                                                            </a>
-                                                        </div> */}
                                                 </div>
                                                 <div className="mt-2">
                                                     <input

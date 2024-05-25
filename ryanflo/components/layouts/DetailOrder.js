@@ -1,18 +1,13 @@
 "use client";
-import { useSession } from "next-auth/react";
-import Image from "next/image";
 import Link from "next/link";
-import { useContext, useEffect, useRef, useState } from "react";
+import {  useRef } from "react";
 import { addDotToPrice, dbTimeForHuman, sizes } from "@/components/layouts/admin/generalData";
-import { CheckIcon, Cog6ToothIcon } from "@heroicons/react/20/solid"
-import { useRouter } from "next/navigation";
-import { StateGlobalContext } from "../StateGlobal";
 
 export default function DetailOrder({ listOrder }) {
     const feeShipping = useRef(25000);
     async function handleDeleteOrder(id) {
         try {
-            const resCancelOrder = await fetch(`http://localhost:3000/api/order?id=${id}`, {
+            const resCancelOrder = await fetch(`ryanflo.vercel.app/api/order?id=${id}`, {
                 method: "DELETE"
             })
             if (resCancelOrder.ok) {
@@ -52,7 +47,7 @@ export default function DetailOrder({ listOrder }) {
                                     </div>
                                 </div>
                                 <div>
-                                    <Link href={`/summary-order/${itemOrder._id}`} className="text-[#111827] py-2 px-2.5 border border-[#6B7280] rounded">View Order</Link>
+                                    <Link href={`ryanflo.vercel.app/summary-order/${itemOrder._id}`} className="text-[#111827] py-2 px-2.5 border border-[#6B7280] rounded">View Order</Link>
                                 </div>
                             </div>
                             {itemOrder.orderInfo.map((item, i) => (
@@ -78,7 +73,7 @@ export default function DetailOrder({ listOrder }) {
                                     <div className="mt-4 flex justify-between items-center">
                                         <div className=""></div>
                                         <div>
-                                            <Link href={`/product/${item.id}`}>
+                                            <Link href={`ryanflo.vercel.app/product/${item.id}`}>
                                                 <div className="inline-block py-1.5 px-3 text-[#4F46E5] cursor-pointer">View product</div>
 
                                             </Link>

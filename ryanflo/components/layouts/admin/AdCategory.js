@@ -3,7 +3,7 @@ import SectionCategory from "./SectionCategory";
 
 const getCategories = async () => {
     try {
-        const resGetCategory = await fetch("http://localhost:3000/api/category", {
+        const resGetCategory = await fetch("ryanflo.vercel.app/api/category", {
         method: "GET"
     })
     return resGetCategory.json();

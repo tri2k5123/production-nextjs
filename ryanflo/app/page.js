@@ -8,12 +8,8 @@ import HomeProductFeature from "@/components/layouts/HomeProductFeature";
 import HomeProductOverview from "@/components/layouts/HomeProductOverview";
 import HomePromoSection from "@/components/layouts/HomePromoSection";
 import HomeTestimonials from "@/components/layouts/HomeTestimonials";
-import { useSession } from "next-auth/react";
 
 export default function Home() {
-  const { data: session } = useSession();
-  // console.log(session)
-  
   return (
     <>
       <HomeCTASection/>

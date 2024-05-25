@@ -4,9 +4,9 @@ import { addDotToPrice } from "./admin/generalData"
 
 function ListProduct({ params, product }) {
     return (
-        <Link href={`/product/${product._id}`}>
+        <Link href={`ryanflo.vercel.app/product/${product._id}`}>
             <div className="product-item">
-                <img className="product-img" src={product.imgs[0]} alt="" />
+                <img className="product-img" src={product.imgs[0]} alt="..." />
                 <img src={product.imgs[1]} alt="" className="product-img-hover" />
                 <div className="product-name">{product.productName}</div>
                 {product.category === "sale" ?

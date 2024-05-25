@@ -1,5 +1,5 @@
 "use client";
-import { memo, useContext, useEffect, useMemo, useState } from "react";
+import { memo, useContext, useEffect, useState } from "react";
 import { StateGlobalContext } from "@/components/StateGlobal"
 import Link from "next/link";
 import Toast from "@/components/layouts/Toast";
@@ -18,8 +18,6 @@ function SideDetailProduct({ product }) {
     const [activeSize, setActiveSize] = useState(0);
     const [activeColor, setActiveColor] = useState(colors[0]);
     const [quantityChosen, setQuantityChosen] = useState(1);
-
-    const { listCart, setListCart } = useContext(StateGlobalContext);
 
     function handleMinusQuantity() {
         setQuantityChosen(prev => {
@@ -59,7 +57,7 @@ function SideDetailProduct({ product }) {
                 ]
             }
             try {
-                const resPostCart = await fetch("http://localhost:3000/api/cart", {
+                const resPostCart = await fetch("ryanflo.vercel.app/api/cart", {
                     method: "POST",
                     headers: {
                         "Content-type": "application/json"
@@ -157,7 +155,7 @@ function SideDetailProduct({ product }) {
                 <div className="inline-block bg-white text-[#0E1C22] py-1.5 px-0 text-base border border-solid border-[#0E1C22] w-full m-0 text-center h-8 cursor-pointer" onClick={handleAddCart}>Add To Cart</div>
                 {showToast && <Toast setShowToast={setShowToast} title={`Successfully saved!`} description={`The product has been added to cart.`}/>}
                 <div className="flex mb-10 mt-1 flex-wrap col-span-full cursor-pointer">
-                    <Link href={"/checkout"} className="buy-now btn mt-2">Buy Now</Link>
+                    <Link href={"ryanflo.vercel.app/checkout"} className="buy-now btn mt-2">Buy Now</Link>
                 </div>
             </div>
         </>

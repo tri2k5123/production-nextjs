@@ -1,17 +1,13 @@
 "use client"
 import { addDotToPrice, sizes } from "@/components/layouts/admin/generalData";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
-import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function SummaryOrderPage({ params }) {
     const [ order, setOrder ] = useState();
 
     const feeShipping = useRef(25000);
-    const estimatedTotal = useMemo(() => {
-        return feeShipping + order?.total
-    }, [order])
     useEffect(() => {
         getSummaryOrder();
     }, [params.idSummaryOrder])
@@ -26,8 +22,6 @@ export default function SummaryOrderPage({ params }) {
             
         }
     }
-    console.log("orders: ", order)
-    
     return (
         <div className="mt-[72px] mx-12 mb-6">
             <div className="flex">

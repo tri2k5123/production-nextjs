@@ -1,43 +1,20 @@
 "use client";
-import { Fragment, useContext, useEffect, useMemo, useRef, useState } from 'react'
+import { Fragment, useMemo} from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import { useSession } from 'next-auth/react';
 import { addDotToPrice } from './admin/generalData';
-import { StateGlobalContext } from '../StateGlobal';
 
 
 
 export default function CartPar({ open, setOpen, listCart, setDeletedItemCart }) {
-  // const { addedCart, deletedItemCart, setDeletedItemCart } = useContext(StateGlobalContext);
   const { data: session } = useSession();
   const emailSession = session?.user?.email;
 
-  // const [listUserCart, setUserCart] = useState();
-
-  // useEffect(() => {
-  //   getUserCart();
-
-  // }, [addedCart, open, deletedItemCart]);
-  // async function getUserCart() {
-  //   try {
-  //     if (emailSession) {
-  //       const resGetUserCart = await fetch(`http://localhost:3000/api/cart?email=${emailSession}`, {
-  //         method: "GET"
-  //       })
-  //       const { userCart } = await resGetUserCart.json();
-  //       setUserCart(userCart);
-
-  //     }
-  //   } catch (error) {
-
-  //   }
-  // }
-
   async function handleDeleteUserCart(i, email) {
     try {
-      const resDeleteItemCart = await fetch(`http://localhost:3000/api/cart`, {
+      const resDeleteItemCart = await fetch(`ryanflo.vercel.app/api/cart`, {
         method: "PATCH",
         headers: {
           "content-type": "application.json"
@@ -119,7 +96,6 @@ export default function CartPar({ open, setOpen, listCart, setDeletedItemCart })
                                     <div>
                                       <div className="flex justify-between text-base font-medium text-gray-900">
                                         <h3>
-                                          {/* <a href={product.href}>{product.name}</a> */}
                                           <div>{product.productName}</div>
                                         </h3>
                                         <p className="ml-4">{addDotToPrice(product.subPrice)}</p>
@@ -164,7 +140,7 @@ export default function CartPar({ open, setOpen, listCart, setDeletedItemCart })
                       <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
                       <div className="mt-6">
                         <Link
-                          href={"/checkout"}
+                          href={"ryanflo.vercel.app/checkout"}
                           onClick={() => setOpen(false)}
                           className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
                         >

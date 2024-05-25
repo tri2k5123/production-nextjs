@@ -1,8 +1,6 @@
 "use client";
 import { Fragment, useEffect, useRef, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { ExclamationTriangleIcon, CheckIcon, CheckBadgeIcon, CheckCircleIcon } from '@heroicons/react/24/outline'
-import Link from 'next/link'
 import { sizes, divideIntoArray, figureOutInitialPrice } from './generalData';
 import Toast from '../Toast';
 
@@ -28,7 +26,7 @@ export default function CreateProductDialog({ open, setOpen, setIsUpdated }) {
 
     async function getCategory() {
         try {
-            const resGetCategory = await fetch("http://localhost:3000/api/category", {
+            const resGetCategory = await fetch("ryanflo.vercel.app/api/category", {
                 method: 'GET'
             })
             const { listCategories } = await resGetCategory.json();
@@ -63,7 +61,7 @@ export default function CreateProductDialog({ open, setOpen, setIsUpdated }) {
         const listColor = divideIntoArray(colors);
         const listImg = divideIntoArray(imgs);
         try {
-            const resCreateProduct = await fetch("http://localhost:3000/api/menu-item", {
+            const resCreateProduct = await fetch("ryanflo.vercel.app/api/menu-item", {
                 method: "POST",
                 headers: {
                     "Content-type": "application/json"

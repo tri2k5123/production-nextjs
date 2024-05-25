@@ -5,7 +5,6 @@ import "./globals.css";
 import Header from "@/components/layouts/Header";
 import Footer from "@/components/layouts/Footer";
 import { AuthProvider } from "./Provider";
-import HomePanel from "@/components/layouts/HomePannel";
 
 
 export const metadata = {
@@ -26,13 +25,11 @@ export default function RootLayout({ children }) {
         <AuthProvider>
           <StateGlobalProvider>
             <GridLayout>
+
               <Header />
-
-              {/* <div className="mt-[72px] mx-12 mb-6">
-              </div> */}
-                {children}
-
+              {children}
               <Footer />
+
             </GridLayout>
           </StateGlobalProvider>
         </AuthProvider>

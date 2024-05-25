@@ -1,6 +1,4 @@
 "use client";
-import Link from "next/link";
-
 import { memo, useContext, useEffect, useState } from "react";
 import { StateGlobalContext } from "@/components/StateGlobal"
 import CartPar from "@/components/layouts/CartPar";
@@ -21,7 +19,7 @@ function IconCart() {
     }, [ addedCart, open, deletedItemCart ])
     async function getUserCart() {
         try {
-            const resGetUserCart = await fetch(`http://localhost:3000/api/cart?email=${session?.user?.email}`, {
+            const resGetUserCart = await fetch(`ryanflo.vercel.app/api/cart?email=${session?.user?.email}`, {
                 method: "GET",
             })
             const { userCart } = await resGetUserCart.json();

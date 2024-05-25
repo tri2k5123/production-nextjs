@@ -1,15 +1,10 @@
-import { memo, useContext, useMemo, useRef, useState } from "react";
-
-import Link from "next/link";
-import { products } from "@/components/data";
-import { StateGlobalContext } from "@/components/StateGlobal";
+import { memo, useMemo, useRef } from "react";
 import { addDotToPrice } from "./admin/generalData";
 
 
 function SummaryOrder({ listCart }) {
-    // const { listCart, setListCart } = useContext(StateGlobalContext);
-
-    const shippingFee = useRef(30000);
+    
+    const shippingFee = useRef(25000);
     const promotion = useRef(0);
 
     const subTotal = useMemo(() => {

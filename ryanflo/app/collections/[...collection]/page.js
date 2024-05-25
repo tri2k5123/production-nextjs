@@ -16,7 +16,7 @@ export default function CollectionPage({ params }) {
     }, [])
     async function getProduct() {
         try {
-            const resGetProduct = await fetch("http://localhost:3000/api/menu-item", {
+            const resGetProduct = await fetch("ryanflo.vercel.app/api/menu-item", {
                 method: "GET"
             })
             const { listProduct } = await resGetProduct.json();
@@ -71,7 +71,7 @@ export default function CollectionPage({ params }) {
                                     >
                                     Go back home
                                     </Link>
-                                    <Link href="./all" className="text-sm font-semibold text-gray-900">
+                                    <Link href="ryanflo.vercel.app/collections/all" className="text-sm font-semibold text-gray-900">
                                     Continue shopping <span aria-hidden="true">&rarr;</span>
                                     </Link>
                                 </div>

@@ -7,7 +7,7 @@ import { redirect } from "next/navigation";
 
 const getHistoryOrder = async () => {
     try {
-        const resGetHistoryOrder = await fetch(`http://localhost:3000/api/history-order`, {
+        const resGetHistoryOrder = await fetch(`ryanflo.vercel.app/api/history-order`, {
             method: "GET"
         })
         return resGetHistoryOrder.json()

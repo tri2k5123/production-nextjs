@@ -1,8 +1,7 @@
-import { Fragment, useRef, useState } from 'react'
+import { Fragment, useRef } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { ExclamationTriangleIcon, CheckIcon, CheckBadgeIcon, CheckCircleIcon } from '@heroicons/react/24/outline'
+import { CheckIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
-import { StateGlobalContext } from '../StateGlobal'
 
 export default function DialogSuccess({ open, setOpen }) {
     const cancelButtonRef = useRef(null)
@@ -53,7 +52,7 @@ export default function DialogSuccess({ open, setOpen }) {
                                     </div>
                                 </div>
                                 <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-                                    <Link href={"/detail-history-order"}>
+                                    <Link href={"ryanflo.vercel.app/detail-history-order"}>
                                         <button
                                             type="button"
                                             className="inline-flex w-full justify-center rounded-md bg-[#16A34A] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[#178c42] sm:ml-3 sm:w-auto"
