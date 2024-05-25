@@ -5,7 +5,7 @@ import { authOptions } from "../api/auth/[...nextauth]/route";
 
 const getUserInfo = async (email) => {
     try {
-        const resGetUserInfo = await fetch(`./api/profile?email=${email}`, {
+        const resGetUserInfo = await fetch(`api/profile?email=${email}`, {
             method: "GET"
         })
         return resGetUserInfo.json();

@@ -7,7 +7,7 @@ import { redirect } from "next/navigation";
 
 async function getListOrder(email) {
     try {
-        const resGetListOrder = await fetch(`./api/order?email=${email}`, {
+        const resGetListOrder = await fetch(`api/order?email=${email}`, {
             method: "GET"
         })
         return resGetListOrder.json();

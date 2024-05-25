@@ -5,7 +5,7 @@ import { redirect } from 'next/navigation';
 
 const getProfile = async (email) => {
     try {
-        const resGetProfile = await fetch(`./api/profile?email=${email}`, {
+        const resGetProfile = await fetch(`api/profile?email=${email}`, {
             method: "GET"
         })
         return resGetProfile.json();
