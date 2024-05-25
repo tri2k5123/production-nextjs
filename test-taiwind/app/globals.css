@@ -1,0 +1,193 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* global */
+* {
+    @apply p-0 m-0 box-border list-none no-underline
+}
+
+.btn {
+    @apply text-white cursor-pointer text-center
+}
+
+.btn.checkout {
+    @apply bg-[#000] py-4 px-5 text-sm border-0 transition-all rounded-2xl h-14 w-full
+}
+
+.btn.buy-now {
+    @apply bg-[#0E1C22] py-2 px-0 text-base border border-solid border-[#0E1C22] w-full
+}
+.btn.buy {
+    @apply no-underline w-2/3 text-sm bg-[#191919] py-2 px-5 inline-block rounded-3xl shadow-md absolute top-[calc(100%+8px)] left-1/2 translate-x-1/2 ease-in-out duration-300
+}
+/*  */
+.payment-method-item__active {
+    @apply border-[#2f5acf] opacity-100
+}
+
+.card-container {
+    @apply w-[362px] border border-solid border-[#dadada] rounded mb-2.5 relative cursor-pointer
+}
+
+.card-container.selected {
+    @apply border-[#0b99b9] shadow-md shadow-[#d2ffff]
+}
+.cancel-price::before {
+    @apply absolute block z-[5] bg-[url('/asset/img/sale.webp')] bg-left-top bg-no-repeat content-[''] bg-contain
+}
+.detail.cancel-price::before {
+    @apply w-16 h-14 top-2 left-0 
+}
+
+.general.cancel-price::before {
+    @apply w-16 h-14 top-0 left-0 
+}
+
+/* side detail Product */
+.ega-swatch__heading {
+    @apply inline-block w-20 mr-8 text-sm text-[#0E1C22] opacity-60 font-normal align-top mt-2
+}
+
+.ega-swatch__element {
+    @apply mt-2 mr-3 inline-block relative align-bottom w-auto px-3 h-8 border border-solid border-[#0e1c224d]
+}
+
+.ega-swatch__element.active {
+    @apply border-2 border-[#0E1C22] bg-none;
+}
+
+/* Slider product */
+.slick-arrow {
+    @apply absolute bg-[#f1f1f1] h-full w-7 text-sm top-0 bottom-0
+}
+
+.ega-slick-thumb {
+    @apply mr-10 ml-7 h-full flex overflow-x-auto
+}
+
+.ega-slick-thumb::-webkit-scrollbar {
+    @apply hidden
+}
+
+/* collection */
+.product-item {
+    @apply mb-6 text-sm text-center shadow-md relative rounded overflow-hidden
+}
+
+.product-item:hover .product-img {
+    @apply opacity-0
+}
+
+.product-item:hover .product-img-hover {
+    @apply opacity-100
+}
+
+.product-img {
+    @apply w-full relative transition-opacity duration-500 rounded
+}
+
+.product-img-hover {
+    @apply w-full absolute top-0 left-0 opacity-0 transition-opacity duration-500 rounded cursor-pointer 
+}
+
+.circle::before {
+    @apply absolute hidden -top-1.5 -left-3 z-[4] bg-[url('/asset/img/circle.webp')] bg-left bg-no-repeat bg-cover content-[''] w-16 h-14 bg-contain
+
+}
+
+.product-name {
+    color: var(--color-text);
+    padding-top: 12px;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    max-height: 2.1rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+
+:root {
+    --header-height: 64px;
+    --color-text: #272727;
+    --color-price: #000;
+    --size-default: 16px;
+    --notify-space: 120px;
+    --mg-top-pd: 72px;
+}
+
+a {
+    color: var(--color-text);
+}
+
+img {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: none;
+}
+
+
+
+/* ---------------------------------------- */
+
+
+@keyframes fadeRight {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/*  */
+
+/* :root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+} */
