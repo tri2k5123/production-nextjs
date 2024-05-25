@@ -19,7 +19,7 @@ function IconCart() {
     }, [ addedCart, open, deletedItemCart ])
     async function getUserCart() {
         try {
-            const resGetUserCart = await fetch(`./api/cart?email=${session?.user?.email}`, {
+            const resGetUserCart = await fetch(`api/cart?email=${session?.user?.email}`, {
                 method: "GET",
             })
             const { userCart } = await resGetUserCart.json();

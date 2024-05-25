@@ -9,26 +9,33 @@ export const authOptions = {
         CredentialsProvider(
             {
                 name: "credentials",
-                credentials: {},
+                credentials: {
+                    username: {
+                        label: "Username",
+                        type: "text",
+                        placeholder: "jsmith",
+                    },
+                    password: { label: "Password", type: "password" },
+                },
                 async authorize(credentials) {
                     const { email, password } = credentials;
                     try {
                         await connectDB();
                         const user = await User.findOne({ email });
-                        if(!user) {
+                        if (!user) {
                             return null;
                         }
                         // const passwordMatch = await bcrypt.compare(password, user.password);
                         // if(!passwordMatch) {
                         //     return null;
                         // }
-                        if(password != user.password) {
+                        if (password != user.password) {
                             return null;
                         }
-                
+
                         return user;
                     } catch (error) {
-                        
+
                     }
                 }
             }
@@ -36,10 +43,10 @@ export const authOptions = {
     ],
     callbacks: {
         async jwt({ token, user, trigger, session }) {
-            if(user) {
+            if (user) {
                 token.role = user.role;
             }
-            if(trigger === 'update' && session?.name) {
+            if (trigger === 'update' && session?.name) {
                 token.name = session.name;
             }
             return token

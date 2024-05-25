@@ -3,7 +3,7 @@ import SectionCategory from "./SectionCategory";
 
 const getCategories = async () => {
     try {
-        const resGetCategory = await fetch("./api/category", {
+        const resGetCategory = await fetch("api/category", {
         method: "GET"
     })
     return resGetCategory.json();

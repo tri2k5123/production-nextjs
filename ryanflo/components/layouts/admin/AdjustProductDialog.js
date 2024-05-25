@@ -22,7 +22,7 @@ export default function AdjustProductDialog({ open, setOpen, data, setIsUpdated 
     const [listCategory, setListCategory] = useState([]);
     async function getCategory() {
         try {
-            const resGetCategory = await fetch("./api/category", {
+            const resGetCategory = await fetch("api/category", {
                 method: 'GET'
             })
             const { listCategories } = await resGetCategory.json();
@@ -49,7 +49,7 @@ export default function AdjustProductDialog({ open, setOpen, data, setIsUpdated 
         const listImg = divideIntoArray(imgs);
         const initialPrice = figureOutInitialPrice(price, percentPrice);
         try {
-            const resUpdateProduct = await fetch("./api/menu-item", {
+            const resUpdateProduct = await fetch("api/menu-item", {
                 method: "PUT",
                 headers: {
                     "Content-type": "application/json"
@@ -67,7 +67,7 @@ export default function AdjustProductDialog({ open, setOpen, data, setIsUpdated 
     }
     async function handleDeleteProduct() {
         try {
-            const resDeleteProduct = await fetch(`./api/menu-item?id=${id}`, {
+            const resDeleteProduct = await fetch(`api/menu-item?id=${id}`, {
                 method: "DELETE",
             })
             if(resDeleteProduct.ok) {

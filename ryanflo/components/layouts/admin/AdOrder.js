@@ -12,7 +12,7 @@ export default function AdOrder({ orders }) {
 
     async function handleFinishedOrder(id, email, total) {
         try {
-            const resCreateHistoryOrder = await fetch(`./api/history-order`, {
+            const resCreateHistoryOrder = await fetch(`api/history-order`, {
                 method: "POST",
                 headers: {
                     "content-type": "application/json"
@@ -20,7 +20,7 @@ export default function AdOrder({ orders }) {
                 body: JSON.stringify({ email, total })
             })
             if (resCreateHistoryOrder.ok) {
-                const resDeleteOrder = await fetch(`./api/order?id=${id}`, {
+                const resDeleteOrder = await fetch(`api/order?id=${id}`, {
                     method: "DELETE"
                 })
                 if (resDeleteOrder.ok) {
@@ -34,7 +34,7 @@ export default function AdOrder({ orders }) {
     }
     async function handleCancerOrder(id) {
         try {
-            const resCancelOrder = await fetch(`./api/order?id=${id}`, {
+            const resCancelOrder = await fetch(`api/order?id=${id}`, {
                 method: "DELETE"
             })
             if (resCancelOrder.ok) {
@@ -73,7 +73,7 @@ export default function AdOrder({ orders }) {
                                     </div>
                                 </div>
                                 <div>
-                                    <Link href={`./summary-order/${itemOrder._id}`} className="text-[#111827] py-2 px-2.5 border border-[#6B7280] rounded">View Order</Link>
+                                    <Link href={`https://ryanflo.vercel.app/summary-order/${itemOrder._id}`} className="text-[#111827] py-2 px-2.5 border border-[#6B7280] rounded">View Order</Link>
                                 </div>
                             </div>
                             {itemOrder.orderInfo.map((itemOrderInfo, i) => (

@@ -11,7 +11,7 @@ export default function AdHistoryOrder({ listHistoryOrder }) {
     const route = useRouter();
       async function handleDeleteHistoryOrder(id) {
         try {
-            const resDeleteHistoryOrder = await fetch(`./api/history-order?id=${id}`, {
+            const resDeleteHistoryOrder = await fetch(`api/history-order?id=${id}`, {
                 method: "DELETE"
             })
             if(resDeleteHistoryOrder.ok) {
