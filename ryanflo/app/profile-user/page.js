@@ -1,6 +1,7 @@
 "use client";
 
-import ServerPageProfileUser from "@/components/layouts/ServerPageProfileUser";
+import ServerPageProfileUser from "@/components/ServerPageProfileUser";
+
 
 export default function ProfileUser() {
     return (
