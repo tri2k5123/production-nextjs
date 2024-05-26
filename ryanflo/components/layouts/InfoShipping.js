@@ -138,7 +138,7 @@ export default function InfoShipping({ matchUserInfo }) {
                     <div className="mb-5">
                         <label className="flex items-center border border-solid border-[#D9D9D9] rounded-2xl py-4 px-5 cursor-pointer transition-all opacity-60 payment-method-item__active">
                             <span className="min-w-9 max-w-14 max-h-9">
-                                <img src="./asset/img/COD.svg" className="my-0 mx-6"/>
+                                <img src="/asset/img/COD.svg" className="my-0 mx-6"/>
                             </span>
                             <span className="font-serif font-sm font-normal text-[#231f20] ml-5">
                                 <p>Cash On Delivery (COD)</p>

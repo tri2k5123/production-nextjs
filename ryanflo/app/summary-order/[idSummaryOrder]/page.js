@@ -26,7 +26,7 @@ export default function SummaryOrderPage({ params }) {
         <div className="mt-[72px] mx-12 mb-6">
             <div className="flex">
                 <div className="w-1/2">
-                    <img className="w-full" src={"./asset/img/allproduct/product/soockaki/sooc_kaki.jpg"} />
+                    <img className="w-full" src={"/asset/img/allproduct/product/soockaki/sooc_kaki.jpg"} />
                 </div>
                 {order && (
                     <div className="w-1/2 m-10">

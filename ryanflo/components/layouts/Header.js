@@ -40,7 +40,7 @@ function Header() {
         <header className="fixed z-[9] inset-x-0 top-0 duration-300 bg-white my-0">
             <div className="mx-12 flex  h-16 items-center ">
 
-                <Link href="/"><img className="pr-4 h-10" src="./asset/img/logo.webp" alt="Ryan studio" /></Link>
+                <Link href="/"><img className="pr-4 h-10" src="/asset/img/logo.webp" alt="Ryan studio" /></Link>
                 <div className="flex items-center justify-between flex-1">
                     <div className="text-color-text text-xs flex items-center">
                         {listCategories.map((navItem, index) => (
