@@ -5,37 +5,37 @@ export default function SectionAdmin({ children }) {
         <div className="gridIn wide shadow-md mt-16">
             <ul className="flex justify-center items-center mb-5">
                 <Link
-                    href={"https://ryanflo.vercel.app/admin/profile-admin"} 
+                    href={"/admin/profile-admin"} 
                     className="py-4 px-6 rounded shadow-sm text-base text-color-text bg-white"
                 >
                     Profile
                 </Link>
                 <Link
-                    href={"https://ryanflo.vercel.app/admin/categories"} 
+                    href={"/admin/categories"} 
                     className="py-4 px-6 rounded shadow-sm text-base text-color-text bg-white"
                 >
                     Categories
                 </Link>
                 <Link
-                    href={"https://ryanflo.vercel.app/admin/menu-items"} 
+                    href={"/admin/menu-items"} 
                     className="py-4 px-6 rounded shadow-sm text-base text-color-text bg-white"
                 >
                     Menu items
                 </Link>
                 <Link
-                    href={"https://ryanflo.vercel.app/admin/users"} 
+                    href={"/admin/users"} 
                     className="py-4 px-6 rounded shadow-sm text-base text-color-text bg-white"
                 >
                     Users
                 </Link>
                 <Link
-                    href={"https://ryanflo.vercel.app/admin/orders"} 
+                    href={"/admin/orders"} 
                     className="py-4 px-6 rounded shadow-sm text-base text-color-text bg-white"
                 >
                     Orders
                 </Link>
                 <Link
-                    href={"https://ryanflo.vercel.app/admin/history-orders"} 
+                    href={"/admin/history-orders"} 
                     className="py-4 px-6 rounded shadow-sm text-base text-color-text bg-white"
                 >
                     History Orders

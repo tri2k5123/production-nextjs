@@ -13,7 +13,7 @@ export default function SummaryOrderPage({ params }) {
     }, [params.idSummaryOrder])
     async function getSummaryOrder() {
         try {
-            const resGetSummaryOrder = await fetch(`api/order/${params.idSummaryOrder}`, {
+            const resGetSummaryOrder = await fetch(`/api/order/${params.idSummaryOrder}`, {
                 method: "GET",
             })
             const { order } = await resGetSummaryOrder.json()
@@ -80,7 +80,7 @@ export default function SummaryOrderPage({ params }) {
                                 </div>
                             </div>
                         </div>
-                        <Link href={"https://ryanflo.vercel.app/collections/all"} className="mt-5 block text-[#4F46E5]">Continue Shopping <ArrowRightIcon className="w-4 h-4 inline-block"/></Link>
+                        <Link href={"/collections/all"} className="mt-5 block text-[#4F46E5]">Continue Shopping <ArrowRightIcon className="w-4 h-4 inline-block"/></Link>
                     </div>
 
                 )}

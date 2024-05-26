@@ -25,11 +25,9 @@ export const authOptions = {
                         if(password != user.password) {
                             return null;
                         }
-                
                         return user;
                     } catch (error) {
                         console.log("Error", error);
-                        
                     }
                 }
             }

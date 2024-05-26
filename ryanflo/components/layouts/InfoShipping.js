@@ -22,7 +22,7 @@ export default function InfoShipping({ matchUserInfo }) {
     }, [addedCart, deletedItemCart])
     async function getUserCart() {
         try {
-            const resGetUserCart = await fetch(`api/cart?email=${matchUserInfo?.email}`, {
+            const resGetUserCart = await fetch(`/api/cart?email=${matchUserInfo?.email}`, {
                 method: "GET"
             })
             const { userCart } = await resGetUserCart.json();
@@ -50,7 +50,7 @@ export default function InfoShipping({ matchUserInfo }) {
                 ]
             }
             try {
-                const resCreateOrder = await fetch("api/order", {
+                const resCreateOrder = await fetch("/api/order", {
                     method: "POST",
                     headers: {
                         "content-type": "application/json"
@@ -58,7 +58,7 @@ export default function InfoShipping({ matchUserInfo }) {
                     body: JSON.stringify({ data })
                 })
                 if(resCreateOrder.ok) {
-                    const resDeleteUserCart = await fetch(`api/cart?id=${userCart?._id}`, {
+                    const resDeleteUserCart = await fetch(`/api/cart?id=${userCart?._id}`, {
                         method: "DELETE",
                     })
                     if(resDeleteUserCart.ok) {

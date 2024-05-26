@@ -13,7 +13,7 @@ export default function SectionCategory() {
     async function handleCreateCategory(e) {
         e.preventDefault();
         try {
-            const resCreateCategory = await fetch("api/category", {
+            const resCreateCategory = await fetch("/api/category", {
                 method: "POST",
                 headers: {
                     "Content-type": "application/json"

@@ -15,7 +15,7 @@ export default function ListCategories({ categories }) {
     async function handleUpdateCategory(e) {
         e.preventDefault();
         try {
-            const resUpdateCategory = await fetch("api/category", {
+            const resUpdateCategory = await fetch("/api/category", {
                 method: "PUT",
                 header: {
                     "Content-type": "application/json"
@@ -41,7 +41,7 @@ export default function ListCategories({ categories }) {
 
     async function handleDeleteCategory(id) {
         try {
-            const resDeleteCategory = await fetch(`api/category?id=${id}`, {
+            const resDeleteCategory = await fetch(`/api/category?id=${id}`, {
                 method: "DELETE",
             })
             if(resDeleteCategory.ok) {

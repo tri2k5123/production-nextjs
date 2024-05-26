@@ -22,7 +22,7 @@ export default function LoginForm({ open, setOpen, setRegisOpen }) {
                 redirect: false,
             })
             if(resLogin.ok && email == "admin@gmail.com") {
-                route.push("admin/orders");
+                route.push("/admin/orders");
             }
             if (resLogin.error) {
                 setError("Invalid Credentials");

@@ -101,7 +101,7 @@ function Header() {
 
                                                 </>
                                             ) : (
-                                                <Link href={"admin/profile-admin"} className="items-center group relative flex gap-x-6 rounded-lg hover:bg-gray-50">
+                                                <Link href={"/admin/profile-admin"} className="items-center group relative flex gap-x-6 rounded-lg hover:bg-gray-50">
                                                     <div className="mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                                                         <ClipboardDocumentListIcon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
                                                     </div>

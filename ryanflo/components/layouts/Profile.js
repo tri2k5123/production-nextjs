@@ -38,7 +38,7 @@ export default function Profile({ matchUserInfo }) {
         setLoading(true);
         try {
 
-            const resUpdateProfile = await fetch("api/profile", {
+            const resUpdateProfile = await fetch("/api/profile", {
                 method: "PUT",
                 headers: {
                     "Content-type": "application/json"
