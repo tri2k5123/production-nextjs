@@ -1,13 +1,13 @@
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+"use client"
 import SectionAdmin from "@/components/layouts/SectionAdmin";
 import AdCategory from "@/components/layouts/admin/AdCategory";
-import { getServerSession } from "next-auth";
-import { redirect } from "next/navigation";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
-export default async function Categories() {
-    const session = await getServerSession(authOptions)
-    if(session?.user?.role !== "admin") redirect("/")
-    
+export default function Categories() {
+    const route = useRouter();
+    const { data: session } = useSession();
+    if(session?.user?.role !== "admin") route.push("/");
 
     return (
         <div className="mt-[72px] mx-12 mb-6">

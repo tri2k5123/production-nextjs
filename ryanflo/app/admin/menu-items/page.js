@@ -1,12 +1,14 @@
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+"use client"
 import SectionAdmin from "@/components/layouts/SectionAdmin";
 import AdMenuItem from "@/components/layouts/admin/AdMenuItem";
-import { getServerSession } from "next-auth";
-import { redirect } from "next/navigation";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
-export default async function MenuItems() {
-    const session = await getServerSession(authOptions);
-    if(session?.user?.role !== "admin") redirect("/");
+export default function MenuItems() {
+
+    const route = useRouter();
+    const { data: session } = useSession();
+    if(session?.user?.role !== "admin") route.push("/");
 
     return (
         <div className="mt-[72px] mx-12 mb-6">

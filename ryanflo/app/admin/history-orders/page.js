@@ -1,29 +1,37 @@
-
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+"use client";
 import SectionAdmin from "@/components/layouts/SectionAdmin";
 import AdHistoryOrder from "@/components/layouts/admin/AdHistoryOrder";
-import { getServerSession } from "next-auth";
-import { redirect } from "next/navigation";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
-const getHistoryOrder = async () => {
-    try {
-        const resGetHistoryOrder = await fetch(`/api/history-order`, {
-            method: "GET"
-        })
-        return resGetHistoryOrder.json()
-    } catch (error) {
-        
+
+
+export default function HistoryOrders() {
+    const route = useRouter();
+    const { data: session } = useSession();
+    if(session?.user?.role !== "admin") route.push("/");
+
+    const [ listHistoryOrder, setListHistoryOrder ] = useState();
+    useEffect(() => {
+        getHistoryOrder();
+    }, []);
+    const getHistoryOrder = async () => {
+        try {
+            const resGetHistoryOrder = await fetch(`/api/history-order`, {
+                method: "GET"
+            })
+            const { listHistoryOrder } = await resGetHistoryOrder.json();
+            setListHistoryOrder(listHistoryOrder)
+        } catch (error) {
+            
+        }
     }
-}
 
-export default async function HistoryOrders() {
-    const session = await getServerSession(authOptions);
-    if(session?.user?.role !== "admin") redirect("/");
-    const { listHistoryOrder } = await getHistoryOrder();
     return (
         <div className="mt-[72px] mx-12 mb-6">
             <SectionAdmin>
-                <AdHistoryOrder listHistoryOrder={listHistoryOrder}/>
+                {listHistoryOrder && <AdHistoryOrder listHistoryOrder={listHistoryOrder}/>}
             </SectionAdmin>
 
         </div>
