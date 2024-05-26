@@ -27,7 +27,7 @@ export default function CheckoutPage() {
         <div className="mt-[72px] mx-12 mb-6">
             <div className="row">
                 <div className="col l-6">
-                    {matchUserInfo && <InfoShipping matchUserInfo={matchUserInfo}/>}
+                    {matchUserInfo ? <InfoShipping matchUserInfo={matchUserInfo}/> : <InfoShipping/>}
                 </div>
                 <div className="col l-6">
                     <ListOrder/>
