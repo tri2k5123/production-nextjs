@@ -1,29 +1,40 @@
-import Profile from '@/components/layouts/Profile'
-import { getServerSession } from 'next-auth'
-import { authOptions } from '../api/auth/[...nextauth]/route'
-import { redirect } from 'next/navigation';
+"use client"
+import Profile from '@/components/layouts/Profile';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
-const getProfile = async (email) => {
-    try {
-        const resGetProfile = await fetch(`http://localhost:3000/api/profile?email=${email}`, {
-            method: "GET"
-        })
-        return resGetProfile.json();
-    } catch (error) {
-        
+
+
+
+export default function ProfileUser() {
+    // const session = await getServerSession(authOptions);
+    // if(!session) redirect("/");
+    // const { matchUserInfo } = await getProfile(session?.user?.email);
+   const route = useRouter();
+    const { data: session } = useSession();
+    const [ matchUserInfo, setMatchUserInfo ] = useState();
+    if(!session) route.push("/");
+
+    useEffect(() => {
+        getProfile();
+    }, [])
+    const getProfile = async () => {
+        try {
+            const resGetProfile = await fetch(`http://localhost:3000/api/profile?email=${session?.user?.email}`, {
+                method: "GET"
+            })
+            const { matchUserInfo } = await resGetProfile.json();
+            setMatchUserInfo(matchUserInfo);
+        } catch (error) {
+            
+        }
     }
-}
 
-
-export default async function ProfileUser() {
-    const session = await getServerSession(authOptions);
-    if(!session) redirect("/");
-    const { matchUserInfo } = await getProfile(session?.user?.email);
-   
     return (
         <div className="mt-[72px] mx-12 mb-6">
             <div className='gridIn wide'>
-                <Profile matchUserInfo={matchUserInfo}/>
+                {matchUserInfo && <Profile matchUserInfo={matchUserInfo}/>}
             </div>
 
         </div>

@@ -1,10 +1,39 @@
-"use client";
+"use client"
+import Profile from '@/components/layouts/Profile';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
-import ServerPageProfileUser from "@/components/ServerPageProfileUser";
+
 
 
 export default function ProfileUser() {
+   const route = useRouter();
+    const { data: session } = useSession();
+    const [ matchUserInfo, setMatchUserInfo ] = useState();
+    if(!session) route.push("/");
+
+    useEffect(() => {
+        getProfile();
+    }, [])
+    const getProfile = async () => {
+        try {
+            const resGetProfile = await fetch(`/api/profile?email=${session?.user?.email}`, {
+                method: "GET"
+            })
+            const { matchUserInfo } = await resGetProfile.json();
+            setMatchUserInfo(matchUserInfo);
+        } catch (error) {
+            
+        }
+    }
+
     return (
-        <ServerPageProfileUser/>
+        <div className="mt-[72px] mx-12 mb-6">
+            <div className='gridIn wide'>
+                {matchUserInfo && <Profile matchUserInfo={matchUserInfo}/>}
+            </div>
+
+        </div>
     )
 }
