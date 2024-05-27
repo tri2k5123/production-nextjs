@@ -35,7 +35,7 @@ export default function LoginForm({ open, setOpen, setRegisOpen }) {
 
     return (
         <Transition.Root show={open} as={Fragment}>
-            <Dialog className="relative z-10" initialFocus={cancelButtonRef} onClose={setOpen}>
+            <Dialog className="relative z-30" initialFocus={cancelButtonRef} onClose={setOpen}>
                 <Transition.Child
                     as={Fragment}
                     enter="ease-out duration-300"

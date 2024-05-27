@@ -35,7 +35,7 @@ export default function CartPar({ open, setOpen, listCart, setDeletedItemCart })
 
   return (
     <Transition.Root show={open} as={Fragment}>
-      <Dialog className="relative z-10" onClose={setOpen}>
+      <Dialog className="relative z-30" onClose={setOpen}>
         <Transition.Child
           as={Fragment}
           enter="ease-in-out duration-500"
