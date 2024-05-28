@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 
 export default function CheckoutPage() {
     const { data: session } = useSession();
-    const [ matchUserInfo, setMatchUserInfo ] = useState({});
+    const [ matchUserInfo, setMatchUserInfo ] = useState(undefined);
     useEffect(() => {
         getUserInfo();
     }, [])
@@ -24,10 +24,10 @@ export default function CheckoutPage() {
     }
 
     return (
-        <div className="mt-24 mx-9 mb-6">
+        <div className="mt-24 mx-1 sm:mx-9 mb-6">
             <div className="row flex-col-reverse sm:flex-row">
                 <div className="col l-6 md-12 c-12">
-                    <InfoShipping matchUserInfo={matchUserInfo}/>
+                    {matchUserInfo && <InfoShipping matchUserInfo={matchUserInfo}/>}
                 </div>
                 <div className="col l-6 md-12 c-12">
                     <ListOrder/>
