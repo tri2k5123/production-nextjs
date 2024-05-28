@@ -78,7 +78,7 @@ function SideDetailProduct({ product }) {
             
         } else {
             setOpenFormRegister(true);
-            alert();
+            
         }
     }
     return (

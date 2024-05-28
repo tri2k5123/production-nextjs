@@ -2,7 +2,7 @@ import { CheckCircleIcon, XMarkIcon } from "@heroicons/react/24/solid";
 
 export default function Toast({ setShowToast, title, description }) {
     return (
-        <div className="fixed z-[10] top-8 right-8">
+        <div className="fixed z-[21] top-8 right-8">
                 <div className="animate-bounce duration-300 p-4 flex min-w-80 max-w-96 bg-white items-center shadow-xl border rounded transition-opacity">
                     <CheckCircleIcon className="w-6 h-6 text-[#22c55e]"></CheckCircleIcon>
                     <div className="mx-4">

@@ -80,7 +80,7 @@ export default function InfoShipping({ matchUserInfo }) {
 
     return (
         <div className="lg:border-r-slate-400 lg:border-r-solid lg:border-r">
-            <div className="py-0 px-5">
+            <div className="py-0 px-1 sm:px-5">
                 <div className="mx-0 mt-8 mb-4 text-3xl font-bold">
                     Information Customer
                 </div>

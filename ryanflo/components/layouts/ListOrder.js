@@ -31,7 +31,7 @@ function ListOrder() {
 
     return (
         <>
-            <div className=" px-3 pb-4">
+            <div className="px-1 lg:px-3 pb-4">
                 <div className="mx-0 mt-8 mb-4 text-3xl font-bold">
                     Summary Order
                 </div>

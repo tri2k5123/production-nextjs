@@ -13,7 +13,7 @@ export default function DetailHistoryOrder() {
 
     useEffect(() => {
         getListOrder();
-    }, [])
+    }, [session?.user?.email])
     async function getListOrder() {
         try {
             const resGetListOrder = await fetch(`/api/order?email=${session?.user?.email}`, {
@@ -27,7 +27,7 @@ export default function DetailHistoryOrder() {
     }
 
     return (
-        <div className="lg:mt-28 mt-24 mx-9 mb-6">
+        <div className="lg:mt-28 mt-24 mx-1 mb-6">
             <div className="gridIn wide">
                 {listOrder && <DetailOrder listOrder={listOrder}/>}
                 {/* <HistoryOrder/> */}

@@ -15,7 +15,7 @@ export default function ProfileUser() {
 
     useEffect(() => {
         getProfile();
-    }, [])
+    }, [session?.user?.email])
     const getProfile = async () => {
         try {
             const resGetProfile = await fetch(`/api/profile?email=${session?.user?.email}`, {
