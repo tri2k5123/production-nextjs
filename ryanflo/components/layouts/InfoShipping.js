@@ -4,11 +4,14 @@ import { useContext, useEffect, useState } from "react";
 import { StateGlobalContext } from "@/components/StateGlobal";
 import DialogSuccess from "./DialogSuccess";
 import { useSession } from "next-auth/react";
+import LoginForm from "./LoginForm";
+import RegisterForm from "./RegisterForm";
 
 export default function InfoShipping({ matchUserInfo }) {
     const { data: session } = useSession();
-    const { addedCart, deletedItemCart, setDeletedItemCart, setOpenFormRegister } = useContext(StateGlobalContext);
-
+    const { addedCart, deletedItemCart, setDeletedItemCart, openFormLogin, setOpenFormLogin,
+        openFormRegister, setOpenFormRegister } = useContext(StateGlobalContext);
+    
     const [ openBuySuccess, setOpenBuySuccess ] = useState(false);
 
     const [ userCart, setUserCart ] = useState();
@@ -151,6 +154,8 @@ export default function InfoShipping({ matchUserInfo }) {
                     PROCEED TO PAYMENT
                 </button>
             </div>
+            {openFormLogin && <LoginForm open={openFormLogin} setOpen={setOpenFormLogin} setRegisOpen={setOpenFormRegister} />}
+            {openFormRegister && <RegisterForm open={openFormRegister} setOpen={setOpenFormRegister} setLoginOpen={setOpenFormLogin} />}
             {openBuySuccess && (
                 <DialogSuccess open={openBuySuccess} setOpen={setOpenBuySuccess}/>
             )}

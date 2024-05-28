@@ -5,10 +5,13 @@ import Link from "next/link";
 import Toast from "@/components/layouts/Toast";
 import { addDotToPrice, sizes } from "./admin/generalData";
 import { useSession } from "next-auth/react";
+import LoginForm from "./LoginForm";
+import RegisterForm from "./RegisterForm";
 
 function SideDetailProduct({ product }) {
-    const { setAddedCart, setOpenFormRegister } = useContext(StateGlobalContext);
-
+    const { setAddedCart, openFormLogin, setOpenFormLogin,
+        openFormRegister, setOpenFormRegister } = useContext(StateGlobalContext);
+    
     const { data: session } = useSession();
 
     const { _id, productName, colors, sizes: listSize, basePrice, imgs, category, initialPrice, percentPrice, remaining } = product;
@@ -74,7 +77,8 @@ function SideDetailProduct({ product }) {
             }
             
         } else {
-            setOpenFormRegister(true)
+            setOpenFormRegister(true);
+            alert();
         }
     }
     return (
@@ -157,6 +161,8 @@ function SideDetailProduct({ product }) {
                 <div className="flex mb-10 mt-1 flex-wrap col-span-full cursor-pointer">
                     <Link href={"/checkout"} className="buy-now btn mt-2">Buy Now</Link>
                 </div>
+                {openFormLogin && <LoginForm open={openFormLogin} setOpen={setOpenFormLogin} setRegisOpen={setOpenFormRegister} />}
+                {openFormRegister && <RegisterForm open={openFormRegister} setOpen={setOpenFormRegister} setLoginOpen={setOpenFormLogin} />}
             </div>
         </>
     )
