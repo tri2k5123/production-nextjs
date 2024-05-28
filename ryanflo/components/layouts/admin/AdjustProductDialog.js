@@ -230,8 +230,8 @@ export default function AdjustProductDialog({ open, setOpen, data, setIsUpdated 
                                                                     <div key={item._id}>
                                                                         <input
                                                                             type='radio'
-                                                                            checked={item._id == category}
-                                                                            onChange={() => setCategory(`${item._id}`)}
+                                                                            checked={item.category == category}
+                                                                            onChange={() => setCategory(`${item.category}`)}
                                                                             className='mr-4'
                                                                         />
                                                                         {item.name}

@@ -28,7 +28,7 @@ export default function ProfileAdmin() {
     }
 
     return (
-        <div className="mt-[72px] mx-12 mb-6">
+        <div className="mt-24 mx-9 mb-6">
             <SectionAdmin>
                 {matchUserInfo && <Profile matchUserInfo={matchUserInfo}/>}
             </SectionAdmin>

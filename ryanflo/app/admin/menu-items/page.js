@@ -11,7 +11,7 @@ export default function MenuItems() {
     if(session?.user?.role !== "admin") route.push("/");
 
     return (
-        <div className="mt-[72px] mx-12 mb-6">
+        <div className="mt-24 mx-9 mb-6">
             <SectionAdmin>
                 <AdMenuItem/>
             </SectionAdmin>

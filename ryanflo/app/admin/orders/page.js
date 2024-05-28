@@ -30,7 +30,7 @@ export default function Orders() {
     }
 
     return (
-        <div className="mt-[72px] mx-12 mb-6">
+        <div className="mt-24 mx-9 mb-6">
             <SectionAdmin>
                 {orders && <AdOrder orders={orders}/>}
             </SectionAdmin>
