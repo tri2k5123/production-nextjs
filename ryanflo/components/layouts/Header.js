@@ -12,9 +12,8 @@ export default function Header() {
     }, [])
     async function getCategories() {
         try {
-            const resGetCategory = await fetch("http://localhost:3000/api/category", {
+            const resGetCategory = await fetch("/api/category", {
                 method: "GET",
-                mode: 'no-cors'
             })
             const {listCategories} = await resGetCategory.json();
             setListCategories(listCategories)

@@ -42,7 +42,7 @@ export default function CollectionPage({ params }) {
         })
     }, [inputSearch]);
     return (
-        <div className="mt-24 mx-9 mb-6">
+        <div className="lg:mt-28 mt-24 mx-9 mb-6">
             <div className="row">
                 {params.collection.length == 1 && (
                     <>

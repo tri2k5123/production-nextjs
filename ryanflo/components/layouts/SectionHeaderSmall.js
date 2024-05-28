@@ -138,7 +138,7 @@ export default function SectionHeaderSmall({ listCategories }) {
 
                             {/* Logo */}
                             <div className="ml-4 flex lg:ml-0">
-                                <Link href={"#"}>
+                                <Link href={"/"}>
                                     <span className="sr-only">Your Company</span>
                                     <img
                                         className="h-8 w-auto"

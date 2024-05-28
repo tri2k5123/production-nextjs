@@ -21,7 +21,7 @@ export default function ProductPage({ params }) {
         }
     }
     return (
-        <div className="mt-24 mx-0 sm:mx-9 mb-6">
+        <div className="mt-24 lg:mt-28 mx-0 sm:mx-9 mb-6">
             <div className="row">
                 {product && (
                     <>
