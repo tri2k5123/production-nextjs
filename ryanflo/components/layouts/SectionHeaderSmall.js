@@ -50,7 +50,7 @@ export default function SectionHeaderSmall({ listCategories }) {
         <div className="bg-white">
             {/* Mobile menu */}
             <Transition show={open}>
-                <Dialog className="relative z-20 lg:hidden" onClose={setOpen}>
+                <Dialog className="relative lg:hidden" onClose={setOpen}>
                     <TransitionChild
                         enter="transition-opacity ease-linear duration-300"
                         enterFrom="opacity-0"
@@ -118,7 +118,7 @@ export default function SectionHeaderSmall({ listCategories }) {
                 </Dialog>
             </Transition>
 
-            <header className="relative bg-white">
+            <header className="bg-white  fixed z-20 top-0 left-0 right-0">
                 {/* <p className="flex h-10 items-center justify-center bg-indigo-600 px-4 text-sm font-medium text-white sm:px-6 lg:px-8">
                     Get free delivery on orders over $100
                 </p> */}

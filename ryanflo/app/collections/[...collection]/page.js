@@ -42,11 +42,11 @@ export default function CollectionPage({ params }) {
         })
     }, [inputSearch]);
     return (
-        <div className="mt-[72px] mx-12 mb-6">
+        <div className="mt-24 mx-9 mb-6">
             <div className="row">
                 {params.collection.length == 1 && (
                     <>
-                        <div className="col l-3 l-o-9">
+                        <div className="col l-3 l-o-9 md-4 md-o-8 c-8 c-o-4">
                             <SearchPar inputSearch={inputSearch} setInputSearch={setInputSearch} />
                         </div>
                         {inputSearch ? resultSearch.map((product, index) => (

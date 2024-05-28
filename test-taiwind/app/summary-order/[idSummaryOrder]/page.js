@@ -29,13 +29,13 @@ export default function SummaryOrderPage({ params }) {
     console.log("orders: ", order)
     
     return (
-        <div className="mt-[72px] mx-12 mb-6">
+        <div className="mt-24 mx-9 mb-6">
             <div className="flex">
-                <div className="w-1/2">
+                <div className="hidden lg:block lg:w-1/2">
                     <img className="w-full" src={"/asset/img/allproduct/product/soockaki/sooc_kaki.jpg"} />
                 </div>
                 {order && (
-                    <div className="w-1/2 m-10">
+                    <div className="w-full lg:w-1/2 lg:m-10">
                         <div className="mb-6">
                             <p className="text-[#4F46E5] text-sm font-bold">Payment successful</p>
                             <h1 className="text-[#111827] text-5xl font-bold my-3">Thanks for ordering</h1>

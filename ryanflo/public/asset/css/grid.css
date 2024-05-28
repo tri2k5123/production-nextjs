@@ -6,7 +6,7 @@
     + row (có no-gutter): ko có khoẳng trắng giữa các cột ngăn cách các cột (chủ yếu trên mobile)
     + row (có sm-gutter): khoẳng ở giữa sẽ nhỏ hơn (chủ yếu trên pc)
     + c-2: .... ( c áp dụng cho mobile)
-    + m-o-2: .... ( m áp dụng cho tablet)
+    + md-o-2: .... ( m áp dụng cho tablet)
     + l-2-4: .... ( l áp dụng cho pc) (hàng đặc biệt có 5 cột)
     + Thêm -o- (offset) là để thiết lập vị trí cho các column 
 */
@@ -168,130 +168,130 @@
         padding-right: 8px;
     }
 
-    .m-0 {
+    .md-0 {
         display: none;
     }
 
-    .m-1,
-    .m-2,
-    .m-3,
-    .m-4,
-    .m-5,
-    .m-6,
-    .m-7,
-    .m-8,
-    .m-9,
-    .m-10,
-    .m-11,
-    .m-12 {
+    .md-1,
+    .md-2,
+    .md-3,
+    .md-4,
+    .md-5,
+    .md-6,
+    .md-7,
+    .md-8,
+    .md-9,
+    .md-10,
+    .md-11,
+    .md-12 {
         display: block;
     }
 
-    .m-1 {
+    .md-1 {
         flex: 0 0 8.33333%;
         max-width: 8.33333%;
     }
 
-    .m-2 {
+    .md-2 {
         flex: 0 0 16.66667%;
         max-width: 16.66667%;
     }
 
-    .m-3 {
+    .md-3 {
         flex: 0 0 25%;
         max-width: 25%;
     }
 
-    .m-4 {
+    .md-4 {
         flex: 0 0 33.33333%;
         max-width: 33.33333%;
     }
 
-    .m-5 {
+    .md-5 {
         flex: 0 0 41.66667%;
         max-width: 41.66667%;
     }
 
-    .m-6 {
+    .md-6 {
         flex: 0 0 50%;
         max-width: 50%;
     }
 
-    .m-7 {
+    .md-7 {
         flex: 0 0 58.33333%;
         max-width: 58.33333%;
     }
 
-    .m-8 {
+    .md-8 {
         flex: 0 0 66.66667%;
         max-width: 66.66667%;
     }
 
-    .m-9 {
+    .md-9 {
         flex: 0 0 75%;
         max-width: 75%;
     }
 
-    .m-10 {
+    .md-10 {
         flex: 0 0 83.33333%;
         max-width: 83.33333%;
     }
 
-    .m-11 {
+    .md-11 {
         flex: 0 0 91.66667%;
         max-width: 91.66667%;
     }
 
-    .m-12 {
+    .md-12 {
         flex: 0 0 100%;
         max-width: 100%;
     }
 
-    .m-o-1 {
+    .md-o-1 {
         margin-left: 8.33333%;
     }
 
-    .m-o-2 {
+    .md-o-2 {
         margin-left: 16.66667%;
     }
 
-    .m-o-2-4 {
+    .md-o-2-4 {
         margin-left: 20%;
     }
 
-    .m-o-3 {
+    .md-o-3 {
         margin-left: 25%;
     }
 
-    .m-o-4 {
+    .md-o-4 {
         margin-left: 33.33333%;
     }
 
-    .m-o-5 {
+    .md-o-5 {
         margin-left: 41.66667%;
     }
 
-    .m-o-6 {
+    .md-o-6 {
         margin-left: 50%;
     }
 
-    .m-o-7 {
+    .md-o-7 {
         margin-left: 58.33333%;
     }
 
-    .m-o-8 {
+    .md-o-8 {
         margin-left: 66.66667%;
     }
 
-    .m-o-9 {
+    .md-o-9 {
         margin-left: 75%;
     }
 
-    .m-o-10 {
+    .md-o-10 {
         margin-left: 83.33333%;
     }
 
-    .m-o-11 {
+    .md-o-11 {
         margin-left: 91.66667%;
     }
 }

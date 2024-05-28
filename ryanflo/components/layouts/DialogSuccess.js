@@ -8,7 +8,7 @@ export default function DialogSuccess({ open, setOpen }) {
 
     return (
         <Transition.Root show={open} as={Fragment}>
-            <Dialog className="relative z-10" initialFocus={cancelButtonRef} onClose={setOpen}>
+            <Dialog className="relative z-20" initialFocus={cancelButtonRef} onClose={setOpen}>
                 <Transition.Child
                     as={Fragment}
                     enter="ease-out duration-300"
@@ -22,7 +22,7 @@ export default function DialogSuccess({ open, setOpen }) {
                 </Transition.Child>
 
                 <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
-                    <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                    <div className="flex min-h-full items-center justify-center p-4 text-center sm:items-center sm:p-0">
                         <Transition.Child
                             as={Fragment}
                             enter="ease-out duration-300"

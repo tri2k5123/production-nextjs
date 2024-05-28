@@ -27,7 +27,7 @@ export default function DetailHistoryOrder() {
     }
 
     return (
-        <div className="mt-[72px] mx-12 mb-6">
+        <div className="mt-24 mx-9 mb-6">
             <div className="gridIn wide">
                 {listOrder && <DetailOrder listOrder={listOrder}/>}
                 {/* <HistoryOrder/> */}

@@ -30,7 +30,7 @@ export default function DetailOrder({ listOrder }) {
                         {listOrder.map(itemOrder => (
                         <div key={itemOrder._id} className="border rounded text-sm  mb-5">
                             <div className="flex items-center justify-between p-6">
-                                <div className="flex items-center gap-16">
+                                <div className="flex items-center gap-4 sm:gap-16">
                                     <div className="">
                                         <h4 className="font-bold text-[#111827] mb-2">Date placed</h4>
                                         <p className="text-[#6B7280]">{dbTimeForHuman(itemOrder.createdAt)}</p>
@@ -46,17 +46,17 @@ export default function DetailOrder({ listOrder }) {
                                         <p className="text-[#111827] font-bold">{addDotToPrice(itemOrder.total + feeShipping.current)}đ</p>
                                     </div>
                                 </div>
-                                <div>
+                                <div  className="hidden sm:block">
                                     <Link href={`/summary-order/${itemOrder._id}`} className="text-[#111827] py-2 px-2.5 border border-[#6B7280] rounded">View Order</Link>
                                 </div>
                             </div>
                             {itemOrder.orderInfo.map((item, i) => (
                                 <div key={i} className="border-t p-6">
-                                    <div className="flex">
+                                    <div className="flex  flex-col sm:flex-row">
                                         <div>
                                             <img  src={item.img} className="w-40 h-40 aspect-square" alt={item.productName} />
                                         </div>
-                                        <div className="ml-6 w-full flex-1">
+                                        <div className="mt-4 lg:mt-0 sm:ml-6 w-full flex-1">
                                             <div className="flex justify-between items-center ">
                                                 <div className="text-[#111827] font-bold">
                                                     {item.productName}
@@ -82,7 +82,11 @@ export default function DetailOrder({ listOrder }) {
                                 </div>
                             ))}
                                 <div className="mb-5 mr-5 flex justify-between items-center">
-                                    <div className=""></div>
+                                    <div>
+                                        <div className="block sm:hidden ml-4">
+                                            <Link href={`/summary-order/${itemOrder._id}`} className="text-[#111827] py-2 px-2.5 border border-[#6B7280] rounded">View Order</Link>
+                                        </div>
+                                    </div>
                                     <div>
                                         <div
                                             className="inline-block py-1 pl-3 ml-3 text-[#4F46E5] cursor-pointer"

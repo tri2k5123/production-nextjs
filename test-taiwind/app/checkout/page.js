@@ -19,7 +19,7 @@ export default async function CheckoutPage() {
     
     return (
         <div className="mt-[72px] mx-12 mb-6">
-            <div className="row">
+            <div className="row flex-col-reverse sm:flex-row">
                 <div className="col l-6">
                     <InfoShipping matchUserInfo={matchUserInfo}/>
                 </div>

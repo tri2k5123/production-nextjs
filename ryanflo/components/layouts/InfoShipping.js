@@ -76,13 +76,13 @@ export default function InfoShipping({ matchUserInfo }) {
     }
 
     return (
-        <div className="border-r-slate-400 border-r-solid border-r">
+        <div className="lg:border-r-slate-400 lg:border-r-solid lg:border-r">
             <div className="py-0 px-5">
                 <div className="mx-0 mt-8 mb-4 text-3xl font-bold">
                     Information Customer
                 </div>
                 <div className="">
-                    <div className="flex">
+                    <div className="flex flex-col sm:flex-row">
                         <div className="flex flex-col w-full static ">
                             <label htmlFor="input" className="text-sm text-[#757575] font-bold relative top-3 ml-2 py-0 px-1 bg-white w-fit">Name:</label>
                             <input
@@ -93,7 +93,7 @@ export default function InfoShipping({ matchUserInfo }) {
                                 className="py-3 px-2.5 text-sm border-solid border-[#d9d9d9] border-2 rounded bg-white focus:outline-0"
                             />
                         </div>
-                        <div className="flex flex-col w-full static  ml-5">
+                        <div className="flex flex-col w-full static sm:ml-5">
                             <label htmlFor="input" className="text-sm text-[#757575] font-bold relative top-3 ml-2 py-0 px-1 bg-white w-fit">Phone number:</label>
                             <input
                                 value={phone}
