@@ -156,11 +156,17 @@ function SideDetailProduct({ product }) {
                         />
                     </div>
                 </div>
-                <div className="inline-block bg-white text-[#0E1C22] py-1.5 px-0 text-base border border-solid border-[#0E1C22] w-full m-0 text-center h-8 cursor-pointer" onClick={handleAddCart}>Add To Cart</div>
+                {remaining > 0 ? (
+                    <>
+                        <div className="inline-block bg-white text-[#0E1C22] py-1.5 px-0 text-base border border-solid border-[#0E1C22] w-full m-0 text-center h-8 cursor-pointer" onClick={handleAddCart}>Add To Cart</div>
+                        <div className="flex mb-10 mt-1 flex-wrap col-span-full cursor-pointer">
+                            <Link href={"/checkout"} className="buy-now btn mt-2">Buy Now</Link>
+                        </div>
+                    </>
+                ) : (
+                    <div className="inline-block bg-white text-[#0E1C22] py-1.5 px-0 text-base border border-solid border-[#0E1C22] w-full m-0 text-center h-8 cursor-default">Sold out</div>
+                )}
                 {showToast && <Toast setShowToast={setShowToast} title={`Successfully saved!`} description={`The product has been added to cart.`}/>}
-                <div className="flex mb-10 mt-1 flex-wrap col-span-full cursor-pointer">
-                    <Link href={"/checkout"} className="buy-now btn mt-2">Buy Now</Link>
-                </div>
                 {openFormLogin && <LoginForm open={openFormLogin} setOpen={setOpenFormLogin} setRegisOpen={setOpenFormRegister} />}
                 {openFormRegister && <RegisterForm open={openFormRegister} setOpen={setOpenFormRegister} setLoginOpen={setOpenFormLogin} />}
             </div>

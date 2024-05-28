@@ -6,6 +6,7 @@ import DialogSuccess from "./DialogSuccess";
 import { useSession } from "next-auth/react";
 import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
+import Loader from "./loader/Loader";
 
 export default function InfoShipping({ matchUserInfo }) {
     const { data: session } = useSession();
@@ -19,6 +20,7 @@ export default function InfoShipping({ matchUserInfo }) {
     const [phone, setPhone] = useState(matchUserInfo?.phone);
     const [address, setAddress] = useState(matchUserInfo?.address);
     const [note, setNote] = useState("");
+    const [ loading, setLoading ] = useState(false);
 
     useEffect(() => {
         getUserCart();
@@ -37,6 +39,7 @@ export default function InfoShipping({ matchUserInfo }) {
     
     async function handleCreateOrder(e) {
         if(session) {
+            setLoading(true);
             const total = userCart?.cartInfo.reduce((initValue, itemCart) => {
                 return initValue + itemCart.subPrice;
             }, 0)
@@ -68,11 +71,11 @@ export default function InfoShipping({ matchUserInfo }) {
                         setOpenBuySuccess(true);
                         setDeletedItemCart(prev => !prev);
                     }
-                    
                 }
             } catch (error) {
                 
             }
+            setLoading(false);
         } else {
             setOpenFormRegister(true)
         }
@@ -159,6 +162,7 @@ export default function InfoShipping({ matchUserInfo }) {
             {openBuySuccess && (
                 <DialogSuccess open={openBuySuccess} setOpen={setOpenBuySuccess}/>
             )}
+            {loading && <Loader />}
         </div>
     )
 }

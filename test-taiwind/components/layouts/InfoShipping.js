@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 export default function InfoShipping({ matchUserInfo }) {
     const { data: session } = useSession();
     const { addedCart, deletedItemCart, setDeletedItemCart, setOpenFormRegister } = useContext(StateGlobalContext);
+console.log("matchUserInfo: ", matchUserInfo)
 
     const route = useRouter();
 

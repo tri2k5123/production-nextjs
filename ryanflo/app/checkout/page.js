@@ -25,7 +25,7 @@ export default function CheckoutPage() {
 
     return (
         <div className="mt-24 mx-1 sm:mx-9 mb-6">
-            <div className="row flex-col-reverse sm:flex-row">
+            <div className="row flex-col-reverse lg:flex-row">
                 <div className="col l-6 md-12 c-12">
                     {matchUserInfo && <InfoShipping matchUserInfo={matchUserInfo}/>}
                 </div>

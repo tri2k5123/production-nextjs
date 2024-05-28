@@ -13,7 +13,9 @@ export default function CartPar({ open, setOpen, listCart, setDeletedItemCart })
   // const { addedCart, deletedItemCart, setDeletedItemCart } = useContext(StateGlobalContext);
   const { data: session } = useSession();
   const emailSession = session?.user?.email;
-
+  if(listCart == []) {
+    listCart = undefined;
+  }
   // const [listUserCart, setUserCart] = useState();
 
   // useEffect(() => {
