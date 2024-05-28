@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 
 export default function DetailHistoryOrder() {
     const { data: session } = useSession();
-    const [ listOrder, setListOrder ] = useState();
+    const [ listOrder, setListOrder ] = useState(undefined);
 
 
     useEffect(() => {
@@ -29,7 +29,7 @@ export default function DetailHistoryOrder() {
     return (
         <div className="lg:mt-28 mt-24 mx-1 mb-6">
             <div className="gridIn wide">
-                {listOrder && <DetailOrder listOrder={listOrder}/>}
+                <DetailOrder listOrder={listOrder}/>
                 {/* <HistoryOrder/> */}
             </div>
 
