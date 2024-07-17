@@ -178,7 +178,7 @@ export default function SectionHeaderSmall({ listCategories }) {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsChangeBg(window.scrollY > 200);
+      setIsChangeBg(window.scrollY > 0);
 
     }
     window.addEventListener('scroll', handleScroll)

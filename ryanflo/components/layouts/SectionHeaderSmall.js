@@ -34,7 +34,7 @@ export default function SectionHeaderSmall({ listCategories }) {
 
     useEffect(() => {
         const handleScroll = () => {
-            setIsChangeBg(window.scrollY > 200);
+            setIsChangeBg(window.scrollY > 0);
     
         }
         window.addEventListener('scroll', handleScroll)
@@ -121,7 +121,7 @@ export default function SectionHeaderSmall({ listCategories }) {
                 </p> */}
 
                 <nav aria-label="Top" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                    <div className="border-b border-gray-200">
+                    <div>
                         <div className="flex h-16 items-center">
                             <button
                                 type="button"
