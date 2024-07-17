@@ -2,6 +2,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { containerPromoSection } from "../animate";
 
+
 export default function HomePromoSection() {
     return (
       <div className="relative overflow-hidden bg-white">
