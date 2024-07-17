@@ -1,19 +1,4 @@
-
-/*
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/aspect-ratio'),
-    ],
-  }
-  ```
-*/
-import { Fragment, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import {
     Dialog,
     DialogPanel,
@@ -45,9 +30,21 @@ export default function SectionHeaderSmall({ listCategories }) {
     const { data: session } = useSession();
     const [openFormLogin, setOpenFormLogin] = useState(false);
     const [openFormRegister, setOpenFormRegister] = useState(false);
+    const [ isChangeBg, setIsChangeBg ] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsChangeBg(window.scrollY > 200);
+    
+        }
+        window.addEventListener('scroll', handleScroll)
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        }
+    }, [])
 
     return (
-        <div className="bg-white">
+        <div>
             {/* Mobile menu */}
             <Transition show={open}>
                 <Dialog className="relative lg:hidden" onClose={setOpen}>
@@ -118,7 +115,7 @@ export default function SectionHeaderSmall({ listCategories }) {
                 </Dialog>
             </Transition>
 
-            <header className="bg-white  fixed z-20 top-0 left-0 right-0">
+            <header className={`${isChangeBg ? `bg-white shadow-md` : ` bg-gradient-to-b from-white to-transparent`} fixed transition-all duration-700 z-20 top-0 left-0 right-0`}>
                 {/* <p className="flex h-10 items-center justify-center bg-indigo-600 px-4 text-sm font-medium text-white sm:px-6 lg:px-8">
                     Get free delivery on orders over $100
                 </p> */}
@@ -141,8 +138,8 @@ export default function SectionHeaderSmall({ listCategories }) {
                                 <Link href={"/"}>
                                     <span className="sr-only">Your Company</span>
                                     <img
-                                        className="h-8 w-auto"
-                                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                                        className="h-9 w-auto"
+                                        src="/asset/img/logo.PNG"
                                         alt=""
                                     />
                                 </Link>

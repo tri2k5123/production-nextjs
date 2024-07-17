@@ -1,5 +1,5 @@
 
-import { Fragment, useContext, useState } from 'react'
+import { Fragment, useContext, useState, useEffect } from 'react'
 import {
     Dialog,
     DialogPanel,
@@ -33,7 +33,7 @@ import LoginForm from './LoginForm'
 import RegisterForm from './RegisterForm'
 import Link from 'next/link'
 import { signOut, useSession } from 'next-auth/react'
-import IconCart from '../icons/IconCart'
+import IconCart from '../icons/IconCart';
 
 const products = [
     { name: 'Analytics', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
@@ -53,20 +53,31 @@ function classNames(...classes) {
 
 export default function SectionHeaderLarge({ listCategories }) {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-    
-    const { data: session } = useSession();
+    const [ isChangeBg, setIsChangeBg ] = useState(false);
     const [openFormLogin, setOpenFormLogin] = useState(false);
     const [openFormRegister, setOpenFormRegister] = useState(false);
 
+    const { data: session } = useSession();
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsChangeBg(window.scrollY > 0);
+
+        }
+        window.addEventListener('scroll', handleScroll)
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        }
+    }, [])
 
     return (
-        <header className="bg-white fixed z-20 top-0 left-0 right-0 shadow-md">
+        <header className={`${isChangeBg ? `bg-white  shadow-md` : ` bg-gradient-to-b from-white to-transparent`} fixed transition-all duration-700 z-20 top-0 left-0 right-0`}>
 
             <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
                 <div className="flex lg:flex-1">
                     <Link href={"/"} className="-m-1.5 p-1.5">
-                        <span className="sr-only">Your Company</span>
-                        <img className="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
+                        {/* <span className="sr-only">Your Company</span> */}
+                        <img className="h-11 w-auto" src="/asset/img/logo.PNG" alt="" />
                     </Link>
                 </div>
                 {/* <div className="flex lg:hidden">
@@ -81,7 +92,7 @@ export default function SectionHeaderLarge({ listCategories }) {
                 </div> */}
                 <PopoverGroup className="hidden lg:flex lg:gap-x-12">
                     <Popover className="relative">
-                        <PopoverButton className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
+                        <PopoverButton className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900 outline-none">
                             Product
                             <ChevronDownIcon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
                         </PopoverButton>
@@ -96,7 +107,7 @@ export default function SectionHeaderLarge({ listCategories }) {
                         >
                             <PopoverPanel className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-56 overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5">
                                 <div className="p-3">
-{/* data */}
+                                    {/* data */}
                                     {listCategories.map((item) => (
                                         <div
                                             key={item.category}
@@ -104,7 +115,7 @@ export default function SectionHeaderLarge({ listCategories }) {
                                         >
                                             {/* <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                                                 <item.icon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
-                                            </div> */}  
+                                            </div> */}
                                             <div className="flex-auto">
                                                 <Link href={`/collections/${item.category}`} className="block font-semibold text-gray-900">
                                                     {item.name}
@@ -131,14 +142,14 @@ export default function SectionHeaderLarge({ listCategories }) {
                         </Transition>
                     </Popover>
 
-                    <Link href="#" className="text-sm font-semibold leading-6 text-gray-900">
-                        Features
+                    <Link href="#about" className="text-sm font-semibold leading-6 text-gray-900">
+                        About
                     </Link>
-                    <Link href="#" className="text-sm font-semibold leading-6 text-gray-900">
-                        Marketplace
+                    <Link href="#introduce" className="text-sm font-semibold leading-6 text-gray-900">
+                        Introduce
                     </Link>
-                    <Link href="#" className="text-sm font-semibold leading-6 text-gray-900">
-                        Company
+                    <Link href="#contact" className="text-sm font-semibold leading-6 text-gray-900">
+                        Contact
                     </Link>
                 </PopoverGroup>
                 <div className="cursor-pointer hidden lg:flex lg:flex-1 lg:justify-end">
@@ -214,7 +225,7 @@ export default function SectionHeaderLarge({ listCategories }) {
                                     </MenuItems>
                                 </Transition>
                             </Menu>
-                            <IconCart/>
+                            <IconCart />
                             {/* <div className="group -m-2 flex items-center p-2">
                                 <ShoppingBagIcon
                                     className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"

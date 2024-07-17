@@ -8,6 +8,7 @@ import HomeProductFeature from "@/components/layouts/HomeProductFeature";
 import HomeProductOverview from "@/components/layouts/HomeProductOverview";
 import HomePromoSection from "@/components/layouts/HomePromoSection";
 import HomeTestimonials from "@/components/layouts/HomeTestimonials";
+import VideoHighlights from "@/components/layouts/VideoHighlights";
 import { useSession } from "next-auth/react";
 
 export default function Home() {
@@ -18,11 +19,12 @@ export default function Home() {
     <>
       <HomeCTASection/>
       <HomeAbout/>
-      <HomeProductOverview/>
+      <VideoHighlights />
+      {/* <HomeProductOverview/> */}
       <HomeCategoryPreview/>
-      <HomeProductFeature/>
+      {/* <HomeProductFeature/> */}
       <HomePromoSection/>
-      <HomeTestimonials/>
+      {/* <HomeTestimonials/> */}
       <HomeNewLetterSection/>
       <HomePanel/>
     </>

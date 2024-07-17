@@ -22,13 +22,13 @@ function SliderProduct({ imageUrls }) {
         <div>
             <div className="flex overflow-hidden">
                 {imageUrls.map((url, i) => (
-                    <img key={i} src={url} className="shrink-0 grow-0 transition-transform duration-500 ease-in"
+                    <img key={i} src={url} className="shrink-0 grow-0 transition-all duration-500 ease-in"
                         style={{ translate: `${-100 * imageIndex}%` }}
                     />
 
                 ))}
             </div>
-            <div className="relative w-full h-[72px] mt-2">
+            <div className="relative w-full aspect-square mt-2">
                 <button className="slick-arrow left-0" onClick={handlePrev}>
                     <ArrowLeft />
                 </button>

@@ -23,6 +23,13 @@ function ListProduct({ params, product }) {
                         </div>
                     )
                 }
+                {product.remaining == 0 && (
+                    <div class="home-product-item__sold-out">
+                        <div class="text-sm md:text-base text-white font-semibold">
+                            SOLD<br/>OUT
+                        </div>
+                    </div>
+                )}
             </div>
         </Link>
     )

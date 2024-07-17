@@ -8,17 +8,19 @@ import HomeProductFeature from "@/components/layouts/HomeProductFeature";
 import HomeProductOverview from "@/components/layouts/HomeProductOverview";
 import HomePromoSection from "@/components/layouts/HomePromoSection";
 import HomeTestimonials from "@/components/layouts/HomeTestimonials";
+import VideoHighlights from "@/components/layouts/VideoHighlights";
 
 export default function Home() {
   return (
     <>
       <HomeCTASection/>
       <HomeAbout/>
-      <HomeProductOverview/>
+      <VideoHighlights/>
+      {/* <HomeProductOverview/> */}
       <HomeCategoryPreview/>
-      <HomeProductFeature/>
+      {/* <HomeProductFeature/> */}
       <HomePromoSection/>
-      <HomeTestimonials/>
+      {/* <HomeTestimonials/> */}
       <HomeNewLetterSection/>
       <HomePanel/>
     </>

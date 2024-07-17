@@ -99,27 +99,29 @@ function SideDetailProduct({ product }) {
                 <span className="">Stock: </span>
                 <span className="">{remaining}</span>
             </div>
-            <div className="h-36">
-
-                <div className="p-0 w-full float-left border-0 mb-7">
-                    <h4 className="ega-swatch__heading">Size</h4>
-                    <div className="inline-block">
+            <div className={` ${listSize.length != 0 ? "h-36" : "h-32"}`}>
+                {listSize.length != 0  && (
+                    <div className="p-0 w-full float-left border-0 mb-7">
+                        <h4 className="ega-swatch__heading">Size</h4>
                         <div className="inline-block">
-                            {listSize.map((size, i) => (
-                                <div
-                                    key={i}
-                                    className={`ega-swatch__element cursor-pointer ${activeSize == i ? "active" : ""}`}
-                                    onClick={() => { setActiveSize(i) }}
-                                >
-                                    {sizes[size]}
-                                </div>
-                            ))}
+                            <div className="inline-block">
+                                {listSize.map((size, i) => (
+                                    <div
+                                        key={i}
+                                        className={`ega-swatch__element cursor-pointer ${activeSize == i ? "active" : ""}`}
+                                        onClick={() => { setActiveSize(i) }}
+                                    >
+                                        {sizes[size]}
+                                    </div>
+                                ))}
+                            </div>
+                            {/* <div className="size-chosen__wrapper">
+                                Hướng dẫn chọn size 
+                            </div> */}
                         </div>
-                        {/* <div className="size-chosen__wrapper">
-                            Hướng dẫn chọn size 
-                        </div> */}
                     </div>
-                </div>
+
+                )}
                 <div className="p-0 w-full float-left border-0 mb-7">
                     <h4 className="ega-swatch__heading">Color</h4>
                     <div className="inline-block">

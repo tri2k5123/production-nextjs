@@ -87,6 +87,10 @@
     @apply w-full relative transition-opacity duration-500 rounded
 }
 
+.home-product-item__sold-out {
+    @apply absolute top-0 right-0 bg-[#0b99b9] w-12 h-fit inline-block  text-center rounded-tr-sm after:content-[''] after:absolute after:-bottom-2 after:right-0 after:border-t-0 after:border-x-[24px] after:border-b-8 border-solid after:border-t-transparent after:border-x-[#0b99b9] after:border-b-transparent
+}
+
 .product-img-hover {
     @apply w-full absolute top-0 left-0 opacity-0 transition-opacity duration-500 rounded cursor-pointer 
 }

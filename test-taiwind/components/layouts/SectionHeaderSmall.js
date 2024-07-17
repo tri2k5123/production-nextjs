@@ -13,7 +13,7 @@
   }
   ```
 */
-import { Fragment, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import {
   Dialog,
   DialogPanel,
@@ -173,9 +173,22 @@ export default function SectionHeaderSmall({ listCategories }) {
   const { data: session } = useSession();
   const [openFormLogin, setOpenFormLogin] = useState(false);
   const [openFormRegister, setOpenFormRegister] = useState(false);
+  const [isChangeBg, setIsChangeBg] = useState(false);
+
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsChangeBg(window.scrollY > 200);
+
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    }
+  }, [])
 
   return (
-    <div className="bg-white">
+    <div >
       {/* Mobile menu */}
       <Transition show={open}>
         <Dialog className="relative z-20 lg:hidden" onClose={setOpen}>
@@ -250,7 +263,7 @@ export default function SectionHeaderSmall({ listCategories }) {
                             </div>
                           ))}
                         </div> */}
-{/* đẩy dữ liệu vào đây */}
+                        {/* đẩy dữ liệu vào đây */}
                         {category.sections.map((section) => (
                           <div key={section.name}>
                             <p className="font-medium text-gray-900">
@@ -264,7 +277,7 @@ export default function SectionHeaderSmall({ listCategories }) {
                               {listCategories.map((item) => (
                                 <li key={item.category} className="flow-root">
                                   <Link href={`/collections/${item.category}`} className="-m-2 block p-2 text-gray-500">
-                                    {item.name} 
+                                    {item.name}
                                   </Link>
                                 </li>
                               ))}
@@ -316,13 +329,13 @@ export default function SectionHeaderSmall({ listCategories }) {
         </Dialog>
       </Transition>
 
-      <header className=" bg-white  fixed z-20 top-0 left-0 right-0">
+      <header className={`${isChangeBg ? `bg-white shadow-md` : ` bg-gradient-to-b from-white to-transparent`} fixed transition-all duration-700 z-20 top-0 left-0 right-0`}>
         {/* <p className="flex h-10 items-center justify-center bg-indigo-600 px-4 text-sm font-medium text-white sm:px-6 lg:px-8">
           Get free delivery on orders over $100
         </p> */}
 
         <nav aria-label="Top" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="border-b border-gray-200">
+          <div className="">
             <div className="flex h-16 items-center">
               <button
                 type="button"
@@ -340,7 +353,7 @@ export default function SectionHeaderSmall({ listCategories }) {
                   <span className="sr-only">Your Company</span>
                   <img
                     className="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                    src="/asset/img/logo.png"
                     alt=""
                   />
                 </Link>
@@ -569,7 +582,7 @@ export default function SectionHeaderSmall({ listCategories }) {
                 )}
                 {openFormLogin && <LoginForm open={openFormLogin} setOpen={setOpenFormLogin} setRegisOpen={setOpenFormRegister} />}
                 {openFormRegister && <RegisterForm open={openFormRegister} setOpen={setOpenFormRegister} setLoginOpen={setOpenFormLogin} />}
-                
+
               </div>
             </div>
           </div>

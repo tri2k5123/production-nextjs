@@ -18,9 +18,11 @@
 .btn.buy-now {
     @apply bg-[#0E1C22] py-2 px-0 text-base border border-solid border-[#0E1C22] w-full
 }
+
 .btn.buy {
     @apply no-underline w-2/3 text-sm bg-[#191919] py-2 px-5 inline-block rounded-3xl shadow-md absolute top-[calc(100%+8px)] left-1/2 translate-x-1/2 ease-in-out duration-300
 }
+
 /*  */
 .payment-method-item__active {
     @apply border-[#2f5acf] opacity-100
@@ -33,15 +35,17 @@
 .card-container.selected {
     @apply border-[#0b99b9] shadow-md shadow-[#d2ffff]
 }
+
 .cancel-price::before {
     @apply absolute block z-[5] bg-[url('/asset/img/sale.webp')] bg-left-top bg-no-repeat content-[''] bg-contain
 }
+
 .detail.cancel-price::before {
-    @apply w-16 h-14 top-2 left-0 
+    @apply w-16 h-14 top-2 left-0
 }
 
 .general.cancel-price::before {
-    @apply w-16 h-14 top-0 left-0 
+    @apply w-16 h-14 top-0 left-0
 }
 
 /* side detail Product */
@@ -87,13 +91,16 @@
     @apply w-full relative transition-opacity duration-500 rounded
 }
 
+.home-product-item__sold-out {
+    @apply absolute top-0 right-0 bg-[#0b99b9] w-12 h-fit inline-block text-center rounded-tr-sm after:content-[''] after:absolute after:-bottom-2 after:right-0 after:border-t-0 after:border-x-[24px] after:border-b-8 border-solid after:border-t-transparent after:border-x-[#0b99b9] after:border-b-transparent
+}
+
 .product-img-hover {
-    @apply w-full absolute top-0 left-0 opacity-0 transition-opacity duration-500 rounded cursor-pointer 
+    @apply w-full absolute top-0 left-0 opacity-0 transition-opacity duration-500 rounded cursor-pointer
 }
 
 .circle::before {
     @apply absolute hidden -top-1.5 -left-3 z-[4] bg-[url('/asset/img/circle.webp')] bg-left bg-no-repeat bg-cover content-[''] w-16 h-14 bg-contain
-
 }
 
 .product-name {
@@ -117,6 +124,11 @@
     --mg-top-pd: 72px;
 }
 
+
+html {
+    scroll-behavior: smooth;
+}
+
 a {
     color: var(--color-text);
 }
@@ -130,7 +142,6 @@ img {
     user-select: none;
     pointer-events: none;
 }
-
 
 
 /* ---------------------------------------- */

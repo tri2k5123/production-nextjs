@@ -35,7 +35,7 @@ export default function CollectionPage({ params }) {
         })
 
     }
-
+    
     const resultSearch = useMemo(() => {
         return products.filter((product) => {
             return product.productName.toLowerCase().includes(inputSearch)

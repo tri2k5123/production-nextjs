@@ -34,3 +34,18 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+<!-- + Sửa transition (dòng 25 SliderProduct)
++ đổi nội dung của header section large (và các file liên quan: HomeAbout, VideoHighlights, HomeNewLetterSection)
++ đổi logo section header small ()
++ thêm framotion (About, category, promosection)
++ hiện thị phần giá là hết hàng khi hết hàng (list product, chỉnh sửa file css)
++ thêm 1 số thuộc tính trong global css (html)
+- cài thư viện mới{
+    
+}
+
+- sửa phần HomeCTASection thành cuộn poster
+- sửa phần thông báo khi add order
+- refresh trang khi xóa đơn hàng ở client -->
