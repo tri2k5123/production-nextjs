@@ -37,7 +37,7 @@ export default function SummaryOrderPage({ params }) {
                 {order && (
                     <div className="w-full lg:w-1/2 lg:m-10">
                         <div className="mb-6">
-                            <p className="text-[#4F46E5] text-sm font-bold">Payment successful</p>
+                            <p className="text-[#16B8FF] text-sm font-bold">Payment successful</p>
                             <h1 className="text-[#111827] text-5xl font-bold my-3">Thanks for ordering</h1>
                             <p className="text-base text-[#6B7280]">We appreciate your order, we’re currently processing it. So hang tight and we’ll send you confirmation very soon!</p>
                         </div>
@@ -86,7 +86,7 @@ export default function SummaryOrderPage({ params }) {
                                 </div>
                             </div>
                         </div>
-                        <Link href={"/collections/all"} className="mt-5 block text-[#4F46E5]">Continue Shopping <ArrowRightIcon className="w-4 h-4 inline-block"/></Link>
+                        <Link href={"/collections/all"} className="mt-5 block text-[#16B8FF]">Continue Shopping <ArrowRightIcon className="w-4 h-4 inline-block"/></Link>
                     </div>
 
                 )}

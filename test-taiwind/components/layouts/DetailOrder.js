@@ -79,7 +79,7 @@ export default function DetailOrder({ listOrder }) {
                                             <div className=""></div>
                                             <div>
                                                 <Link href={`/product/${item.id}`}>
-                                                    <div className="inline-block py-1.5 px-3 text-[#4F46E5] cursor-pointer">View product</div>
+                                                    <div className="inline-block py-1.5 px-3 text-[#16B8FF] cursor-pointer">View product</div>
 
                                                 </Link>
                                             </div>
@@ -93,7 +93,7 @@ export default function DetailOrder({ listOrder }) {
                                     
                                     <div>
                                         <div
-                                            className="inline-block py-1 pl-3 ml-3 text-[#4F46E5] cursor-pointer"
+                                            className="inline-block py-1 pl-3 ml-3 text-[#16B8FF] cursor-pointer"
                                             onClick={() => handleDeleteOrder(itemOrder._id)}
                                         >
                                             Cancel

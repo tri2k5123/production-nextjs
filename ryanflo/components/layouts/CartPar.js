@@ -108,7 +108,7 @@ export default function CartPar({ open, setOpen, listCart, setDeletedItemCart })
                                       <div className="flex">
                                         <button
                                           type="button"
-                                          className="font-medium text-indigo-600 hover:text-indigo-500"
+                                          className="font-medium text-[#16B8FF] hover:text-[#1f9cd2]"
                                           onClick={() => handleDeleteUserCart(i, emailSession)}
                                         >
                                           Remove
@@ -142,7 +142,7 @@ export default function CartPar({ open, setOpen, listCart, setDeletedItemCart })
                         <Link
                           href={"/checkout"}
                           onClick={() => setOpen(false)}
-                          className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
+                          className="flex items-center justify-center rounded-md border border-transparent bg-[#16B8FF] px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-[#239acd]"
                         >
                           Checkout
                         </Link>
@@ -152,7 +152,7 @@ export default function CartPar({ open, setOpen, listCart, setDeletedItemCart })
                           or{' '}
                           <button
                             type="button"
-                            className="font-medium text-indigo-600 hover:text-indigo-500"
+                            className="font-medium text-[#16B8FF] hover:text-[#2298cb]"
                             onClick={() => setOpen(false)}
                           >
                             Continue Shopping

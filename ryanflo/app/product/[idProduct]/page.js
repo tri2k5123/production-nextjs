@@ -26,10 +26,10 @@ export default function ProductPage({ params }) {
                 {product && (
                     <>
                     
-                        <div className="col l-4 l-o-1 md-8 md-o-2 c-12 ">
+                        <div className="col l-5 l-o-1 md-10 md-o-1 c-12 ">
                             <SliderProduct imageUrls={product.imgs}></SliderProduct>
                         </div>
-                        <div className="col l-5 l-o-1 md-10 md-o-1 c-10 c-o-1 mt-5">
+                        <div className="mt-5 lg:mt-0 col l-5 l-o-1 md-10 md-o-1 c-10 c-o-1">
                             <SideDetailProduct product={product}></SideDetailProduct>
                         </div>
                     </>

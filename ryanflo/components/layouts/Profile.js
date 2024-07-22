@@ -67,7 +67,7 @@ export default function Profile({ matchUserInfo }) {
                                 Email address
                             </label>
                             <div className="mt-2">
-                                <div className="  flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                                <div className="  flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-[#16B8FF] sm:max-w-md">
                                     <div className='cursor-not-allowed flex-1 border-0 rounded-md bg-gray-300 bg-opacity-85 py-1.5 pl-4 text-gray-600 sm:text-sm sm:leading-6'>{matchUserInfo.email}</div>
                                 </div>
                             </div>
@@ -77,7 +77,7 @@ export default function Profile({ matchUserInfo }) {
                                 Password
                             </label>
                             <div className="mt-2">
-                                <div className="px-4 flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                                <div className="px-4 flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-[#16B8FF] sm:max-w-md">
                                     <input
                                         type="text"
                                         name="password"
@@ -101,7 +101,7 @@ export default function Profile({ matchUserInfo }) {
                             </label>
                             <div className="mt-2">
                                 <input
-                                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#16B8FF] sm:text-sm sm:leading-6"
                                     id="name"
                                     name="name"
                                     type="text"
@@ -116,7 +116,7 @@ export default function Profile({ matchUserInfo }) {
                             </label>
                             <div className="mt-2">
                                 <input
-                                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#16B8FF] sm:text-sm sm:leading-6"
                                     id="phone"
                                     name="phone"
                                     type="text"
@@ -131,7 +131,7 @@ export default function Profile({ matchUserInfo }) {
                             </label>
                             <div className="mt-2">
                                 <input
-                                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#16B8FF] sm:text-sm sm:leading-6"
                                     type="text"
                                     name="street-address"
                                     id="street-address"
@@ -153,7 +153,7 @@ export default function Profile({ matchUserInfo }) {
                 </button>
                 <button
                     type="submit"
-                    className="mr-4 rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                    className="mr-4 rounded-md bg-[#16B8FF] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[#219bd0] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#219bd0]"
                     onClick={handleUpdateProfile}
                 >
                     Save

@@ -25,7 +25,7 @@
 
 /*  */
 .payment-method-item__active {
-    @apply border-[#2f5acf] opacity-100
+    @apply border-[#16B8FF] opacity-100
 }
 
 .card-container {
@@ -63,15 +63,30 @@
 
 /* Slider product */
 .slick-arrow {
-    @apply absolute bg-[#f1f1f1] h-full w-7 text-sm top-0 bottom-0
+    @apply absolute bg-[#0003] text-[#fff] h-full w-7 text-sm top-0 bottom-0
 }
 
-.ega-slick-thumb {
-    @apply mr-10 ml-7 h-full flex overflow-x-auto
+.carousel-img-detail {
+    display: grid;
+    grid-auto-flow: column;
+    scroll-behavior: auto;
+    gap: 0.5rem;
+    overflow-y: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
 }
 
-.ega-slick-thumb::-webkit-scrollbar {
+.carousel-img-detail::-webkit-scrollbar {
     @apply hidden
+}
+
+.card-img-detail {
+    scroll-snap-align: start;
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* collection */
@@ -122,6 +137,8 @@
     --size-default: 16px;
     --notify-space: 120px;
     --mg-top-pd: 72px;
+
+    --primary-color: #16B8FF;
 }
 
 

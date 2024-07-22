@@ -125,7 +125,7 @@ export default function HomePromoSection() {
                 >
                   <Link
                     href={"/collections/all"}
-                    className="inline-block rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-center font-medium text-white hover:bg-indigo-700"
+                    className="inline-block rounded-md border border-transparent bg-[#16B8FF] px-8 py-3 text-center font-medium text-white hover:bg-[#189fd8]"
                   >
                     Shop Collection
                   </Link>

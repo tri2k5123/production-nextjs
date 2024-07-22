@@ -38,7 +38,7 @@ function IconCart() {
                 <>
                     <div onClick={e => setOpen(prev => !prev)} className="block p-2 text-xl relative cursor-pointer">
                         <i className="fa-solid fa-cart-shopping"></i>
-                        <div className="absolute top-0 right-0 bg-[#1247F2] text-white px-1.5 text-sm rounded-full">{userCart.cartInfo.length}</div>
+                        <div className="absolute top-0 right-0 bg-[#16B8FF] text-white px-1.5 text-sm rounded-full">{userCart.cartInfo.length}</div>
                     </div>
                     <CartPar open={open} setOpen={setOpen} listCart={userCart.cartInfo} setDeletedItemCart={setDeletedItemCart}/>
                 </>

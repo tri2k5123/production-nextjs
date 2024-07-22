@@ -1,10 +1,9 @@
 import ArrowRight from "@/components/icons/ArrowRight";
 import ArrowLeft from "@/components/icons/ArrowLeft";
-import { memo, useState } from "react"
+import { memo, useState } from "react";
 
 function SliderProduct({ imageUrls }) {
     const [imageIndex, setImageIndex] = useState(0);
-    
     function handlePrev() {
         setImageIndex(index => {
             if(index == 0) return imageUrls.length - 1;
@@ -28,20 +27,23 @@ function SliderProduct({ imageUrls }) {
 
                 ))}
             </div>
-            <div className="relative w-full aspect-square mt-2">
-                <button className="slick-arrow left-0" onClick={handlePrev}>
+            <div className="relative w-full mt-2">
+                <button className="slick-arrow left-0 z-[1]" onClick={handlePrev}>
                     <ArrowLeft />
                 </button>
-                <div className="ega-slick-thumb">
-                    {imageUrls.map((url, index) => (
-                        <button
-                            key={index}
-                            onClick={() => setImageIndex(index)}
-                            className={`flex h-full ml-2 ${imageIndex == index ? "border border-solid border-[#d42014]" : ""}`}
-                        >
-                            <img className="h-full aspect-square" src={url}/>
-                        </button>
-                    ))}
+                <div className="w-full">
+                    <div className="carousel-img-detail">
+                        {imageUrls.map((url, index) => (
+                            <div
+                                key={index}
+                                onMouseOver={() => setImageIndex(index)}
+                                className={`card-img-detail w-[80px] md:w-[70px] ${imageIndex == index ? "border border-solid border-[#d42014]" : ""}`}
+                            >
+                                <img className="w-full" src={url}/>
+                                
+                            </div>
+                        ))}
+                    </div>
                 </div>
                 <button className="slick-arrow right-0" onClick={handleNext}>
                     <ArrowRight />
