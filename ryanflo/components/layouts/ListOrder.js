@@ -44,7 +44,7 @@ function ListOrder() {
                                         <img className="w-full h-full" src={itemCart.img} />
                                     </div>
                                     <div className="flex-1">
-                                        <h4 className="block w-full max-h-8 over-hidden text-ellipsis pl-0 text-sm text-[#212121] ">{itemCart.productName}</h4>
+                                        <h4 className="block w-full over-hidden text-ellipsis pl-0 text-sm text-[#212121] ">{itemCart.productName}</h4>
                                         <p className="block mt-2 text-xs text-[#757575]">Size: {sizes[itemCart.activeSize]}</p>
                                         <p className="block mt-2 text-xs text-[#757575]">Color: {itemCart.activeColor}</p>
                                         <p className="block mt-2 text-xs text-[#757575]">Quantity: {itemCart.quantityChosen}</p>
