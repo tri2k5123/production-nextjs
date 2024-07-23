@@ -42,14 +42,14 @@ export default function HomePromoSection() {
                       >
                         <div className="h-64 w-44 overflow-hidden rounded-lg sm:opacity-0 lg:opacity-100">
                           <img
-                            src="/asset/img/promo7.PNG"
+                            src="/asset/img/promo7.png"
                             alt=""
                             className="h-full w-full object-cover object-center"
                           />
                         </div>
                         <div className="h-64 w-44 overflow-hidden rounded-lg">
                           <img
-                            src="/asset/img/promo2.PNG"
+                            src="/asset/img/promo2.png"
                             alt=""
                             className="h-full w-full object-cover object-center"
                           />
@@ -63,7 +63,7 @@ export default function HomePromoSection() {
                           className="h-64 w-44 overflow-hidden rounded-lg"
                         >
                           <img
-                            src="/asset/img/promo4.PNG"
+                            src="/asset/img/promo4.png"
                             alt=""
                             className="h-full w-full object-cover object-center"
                           />
@@ -75,7 +75,7 @@ export default function HomePromoSection() {
                           className="h-64 w-44 overflow-hidden rounded-lg"
                         >
                           <img
-                            src="/asset/img/promo6.PNG"
+                            src="/asset/img/promo6.png"
                             alt=""
                             className="h-full w-full object-cover object-center"
                           />
@@ -87,7 +87,7 @@ export default function HomePromoSection() {
                           className="h-64 w-44 overflow-hidden rounded-lg"
                         >
                           <img
-                            src="/asset/img/promo1.PNG"
+                            src="/asset/img/promo1.png"
                             alt=""
                             className="h-full w-full object-cover object-center"
                           />
@@ -101,14 +101,14 @@ export default function HomePromoSection() {
                       >
                         <div className="h-64 w-44 overflow-hidden rounded-lg">
                           <img
-                            src="/asset/img/promo3.PNG"
+                            src="/asset/img/promo3.png"
                             alt=""
                             className="h-full w-full object-cover object-center"
                           />
                         </div>
                         <div className="h-64 w-44 overflow-hidden rounded-lg">
                           <img
-                            src="/asset/img/promo5.PNG"
+                            src="/asset/img/promo5.png"
                             alt=""
                             className="h-full w-full object-cover object-center"
                           />
