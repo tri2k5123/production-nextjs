@@ -38,7 +38,7 @@ function SliderProduct({ imageUrls }) {
                             <div
                                 key={index}
                                 onMouseOver={() => setImageIndex(index)}
-                                className={`card-img-detail w-[80px] md:w-[70px] ${imageIndex == index ? "border border-solid border-[#d42014]" : ""}`}
+                                className={`card-img-detail w-20 ${imageIndex == index ? "border border-solid border-[#d42014]" : ""}`}
                             >
                                 <img className="w-full" src={url}/>
                                 

@@ -32,7 +32,7 @@ export default function ProfileUser() {
     }
 
     return (
-        <div className="mt-[72px] mx-12 mb-6">
+        <div className="mt-24 lg:mt-28 mx-9 mb-6">
             <div className='gridIn wide'>
                 {matchUserInfo && <Profile matchUserInfo={matchUserInfo}/>}
             </div>

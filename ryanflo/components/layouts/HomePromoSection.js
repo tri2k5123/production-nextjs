@@ -49,7 +49,7 @@ export default function HomePromoSection() {
                         </div>
                         <div className="h-64 w-44 overflow-hidden rounded-lg">
                           <img
-                            src="/asset/img/promo2.JPG"
+                            src="/asset/img/promo2.PNG"
                             alt=""
                             className="h-full w-full object-cover object-center"
                           />
@@ -63,7 +63,7 @@ export default function HomePromoSection() {
                           className="h-64 w-44 overflow-hidden rounded-lg"
                         >
                           <img
-                            src="/asset/img/promo4.JPG"
+                            src="/asset/img/promo4.PNG"
                             alt=""
                             className="h-full w-full object-cover object-center"
                           />
@@ -75,7 +75,7 @@ export default function HomePromoSection() {
                           className="h-64 w-44 overflow-hidden rounded-lg"
                         >
                           <img
-                            src="/asset/img/promo6.JPG"
+                            src="/asset/img/promo6.PNG"
                             alt=""
                             className="h-full w-full object-cover object-center"
                           />
@@ -87,7 +87,7 @@ export default function HomePromoSection() {
                           className="h-64 w-44 overflow-hidden rounded-lg"
                         >
                           <img
-                            src="/asset/img/promo1.JPG"
+                            src="/asset/img/promo1.PNG"
                             alt=""
                             className="h-full w-full object-cover object-center"
                           />
@@ -101,14 +101,14 @@ export default function HomePromoSection() {
                       >
                         <div className="h-64 w-44 overflow-hidden rounded-lg">
                           <img
-                            src="/asset/img/promo3.JPG"
+                            src="/asset/img/promo3.PNG"
                             alt=""
                             className="h-full w-full object-cover object-center"
                           />
                         </div>
                         <div className="h-64 w-44 overflow-hidden rounded-lg">
                           <img
-                            src="/asset/img/promo5.JPG"
+                            src="/asset/img/promo5.PNG"
                             alt=""
                             className="h-full w-full object-cover object-center"
                           />

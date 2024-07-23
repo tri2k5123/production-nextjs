@@ -29,7 +29,7 @@ export default function SummaryOrderPage({ params }) {
     console.log("orders: ", order)
     
     return (
-        <div className="mt-24 mx-9 mb-6">
+        <div className="mt-24 lg:mt-28 mx-9 mb-6">
             <div className="flex">
                 <div className="hidden lg:block lg:w-1/2">
                     <img className="w-full" src={"/asset/img/img-thank.png"} />

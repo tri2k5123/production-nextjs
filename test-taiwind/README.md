@@ -38,13 +38,10 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 
 <!-- 
-+ sửa file grid.css (class m)
-+ sửa phần carousel img (slider product, cả page product)
-- sửa màu (**iconCart, **icon liệt kê homeAbout, **button ở promo Section hover, **button ở trang 404, **cả cái shopping cart, **khung của payment method, **nút save ở trang profile, **màu chữ trang summeryOrder[khi bấm view order], **chữ của trang detail-history-order )
-+ đổi màu chữ go back home khi ko có sản phẩm (page collections)
 - cài thư viện mới{
 
 }
+
 
 - loading animate
 
