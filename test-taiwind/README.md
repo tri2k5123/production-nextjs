@@ -51,4 +51,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 - sửa phần HomeCTASection thành cuộn poster
 - sửa phần thông báo khi add order
-- refresh trang khi xóa đơn hàng ở client -->
+- refresh trang khi xóa đơn hàng ở client 
++ web chỉnh size ảnh https://www.photoresizer.com/
+-->

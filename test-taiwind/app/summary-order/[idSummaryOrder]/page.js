@@ -75,9 +75,12 @@ export default function SummaryOrderPage({ params }) {
                             </div>
                         </div>
                         <div className="border-b py-7">
-                            <div className="flex justify-between">
+                            <div className="flex flex-col sm:flex-row justify-between gap-3 md:gap-4 lg:gap-5">
                                 <div>
-                                    <h3 className="text-[#111827]">Shipping Address</h3>
+                                    <h3 className="text-[#111827]">Summary Information</h3>
+                                    <p className="text-[#6B7280]">{order?.name}</p>
+                                    <p className="text-[#6B7280]">{order?.phone}</p>
+                                    <p className="text-[#6B7280]">{order?.note}</p>
                                     <p className="text-[#6B7280]">{order?.address}</p>
                                 </div>
                                 <div>

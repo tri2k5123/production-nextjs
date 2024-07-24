@@ -45,6 +45,11 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
     + Sử dụng library shadcn-ui để triển khai các component có sẵn 
     + cài extention es7+ (tạo nhanh 1 component react với 'rafce')
 
-    responsibility
+    responsibility:
+        FE:
+    + Làm phần sidebar, navbar
+        BE:
     + authentication, authorization (clerk)
+
+    tech stack: Next.js, TypeScript, Clerk, getstream, shadcn, Tailwind CSS
  -->

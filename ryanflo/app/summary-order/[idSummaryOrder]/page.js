@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 export default function SummaryOrderPage({ params }) {
-    const [ order, setOrder ] = useState();
+    const [order, setOrder] = useState();
 
     const feeShipping = useRef(25000);
     useEffect(() => {
@@ -19,7 +19,7 @@ export default function SummaryOrderPage({ params }) {
             const { order } = await resGetSummaryOrder.json()
             setOrder(order);
         } catch (error) {
-            
+
         }
     }
     return (
@@ -40,7 +40,7 @@ export default function SummaryOrderPage({ params }) {
                         </div>
                         {order.orderInfo.map((itemOrder, i) => (
                             <div key={i} className="border-b py-5 flex text-sm">
-                                <img className="w-24 h-24" src={itemOrder.img} alt={itemOrder.productName}/>
+                                <img className="w-24 h-24" src={itemOrder.img} alt={itemOrder.productName} />
                                 <div className="flex flex-1 justify-between">
                                     <div className="ml-4">
                                         <div className="text-[#111827]">{itemOrder.productName}</div>
@@ -51,7 +51,7 @@ export default function SummaryOrderPage({ params }) {
                                 </div>
                             </div>
                         ))}
-                        
+
                         <div className="border-b py-5">
                             <div className="flex justify-between">
                                 <div className="text-[#6B7280]">Subtotal</div>
@@ -69,9 +69,12 @@ export default function SummaryOrderPage({ params }) {
                             </div>
                         </div>
                         <div className="border-b py-7">
-                            <div className="flex justify-between">
+                            <div className="flex flex-col sm:flex-row justify-between gap-3 md:gap-4 lg:gap-5">
                                 <div>
-                                    <h3 className="text-[#111827]">Shipping Address</h3>
+                                    <h3 className="text-[#111827]">Summary Information</h3>
+                                    <p className="text-[#6B7280]">{order?.name}</p>
+                                    <p className="text-[#6B7280]">{order?.phone}</p>
+                                    <p className="text-[#6B7280]">{order?.note}</p>
                                     <p className="text-[#6B7280]">{order?.address}</p>
                                 </div>
                                 <div>
@@ -80,7 +83,7 @@ export default function SummaryOrderPage({ params }) {
                                 </div>
                             </div>
                         </div>
-                        <Link href={"/collections/all"} className="mt-5 block text-[#16B8FF]">Continue Shopping <ArrowRightIcon className="w-4 h-4 inline-block"/></Link>
+                        <Link href={"/collections/all"} className="mt-5 block text-[#16B8FF]">Continue Shopping <ArrowRightIcon className="w-4 h-4 inline-block" /></Link>
                     </div>
 
                 )}
