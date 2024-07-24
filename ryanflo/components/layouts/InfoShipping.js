@@ -12,15 +12,15 @@ export default function InfoShipping({ matchUserInfo }) {
     const { data: session } = useSession();
     const { addedCart, deletedItemCart, setDeletedItemCart, openFormLogin, setOpenFormLogin,
         openFormRegister, setOpenFormRegister } = useContext(StateGlobalContext);
-    
-    const [ openBuySuccess, setOpenBuySuccess ] = useState(false);
 
-    const [ userCart, setUserCart ] = useState();
+    const [openBuySuccess, setOpenBuySuccess] = useState(false);
+
+    const [userCart, setUserCart] = useState();
     const [nameCustomer, setNameCustomer] = useState(matchUserInfo?.name);
     const [phone, setPhone] = useState(matchUserInfo?.phone);
     const [address, setAddress] = useState(matchUserInfo?.address);
     const [note, setNote] = useState("");
-    const [ loading, setLoading ] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         getUserCart();
@@ -33,52 +33,52 @@ export default function InfoShipping({ matchUserInfo }) {
             const { userCart } = await resGetUserCart.json();
             setUserCart(userCart);
         } catch (error) {
-            
+
         }
     }
-    
+
     async function handleCreateOrder(e) {
-        if(session) {
-            setLoading(true);
-            const total = userCart?.cartInfo.reduce((initValue, itemCart) => {
-                return initValue + itemCart.subPrice;
-            }, 0)
-            const data = {
-                email: matchUserInfo?.email,
-                name: nameCustomer,
-                phone,
-                address,
-                note,
-                isFinished: false,
-                total,
-                orderInfo: [
-                    ...userCart?.cartInfo,
-                ]
-            }
-            try {
-                const resCreateOrder = await fetch("/api/order", {
-                    method: "POST",
-                    headers: {
-                        "content-type": "application/json"
-                    },
-                    body: JSON.stringify({ data })
-                })
-                if(resCreateOrder.ok) {
-                    const resDeleteUserCart = await fetch(`/api/cart?id=${userCart?._id}`, {
-                        method: "DELETE",
-                    })
-                    if(resDeleteUserCart.ok) {
-                        setOpenBuySuccess(true);
-                        setDeletedItemCart(prev => !prev);
-                    }
-                }
-            } catch (error) {
-                
-            }
-            setLoading(false);
-        } else {
-            setOpenFormRegister(true)
+        if (!userCart?.cartInfo || userCart?.cartInfo?.length == 0) {
+            return;
         }
+
+        setLoading(true);
+        const total = userCart?.cartInfo.reduce((initValue, itemCart) => {
+            return initValue + itemCart.subPrice;
+        }, 0)
+        const data = {
+            email: matchUserInfo?.email,
+            name: nameCustomer,
+            phone,
+            address,
+            note,
+            isFinished: false,
+            total,
+            orderInfo: [
+                ...userCart?.cartInfo,
+            ]
+        }
+        try {
+            const resCreateOrder = await fetch("/api/order", {
+                method: "POST",
+                headers: {
+                    "content-type": "application/json"
+                },
+                body: JSON.stringify({ data })
+            })
+            if (resCreateOrder.ok) {
+                const resDeleteUserCart = await fetch(`/api/cart?id=${userCart?._id}`, {
+                    method: "DELETE",
+                })
+                if (resDeleteUserCart.ok) {
+                    setOpenBuySuccess(true);
+                    setDeletedItemCart(prev => !prev);
+                }
+            }
+        } catch (error) {
+
+        }
+        setLoading(false);
     }
 
     return (
@@ -144,7 +144,7 @@ export default function InfoShipping({ matchUserInfo }) {
                     <div className="mb-5">
                         <label className="flex items-center border border-solid border-[#D9D9D9] rounded-2xl py-4 px-5 cursor-pointer transition-all opacity-60 payment-method-item__active">
                             <span className="min-w-9 max-w-14 max-h-9">
-                                <img src="/asset/img/COD.svg" className="my-0 mx-6"/>
+                                <img src="/asset/img/COD.svg" className="my-0 mx-6" />
                             </span>
                             <span className="font-serif font-sm font-normal text-[#231f20] ml-5">
                                 <p>Cash On Delivery (COD)</p>
@@ -160,7 +160,7 @@ export default function InfoShipping({ matchUserInfo }) {
             {openFormLogin && <LoginForm open={openFormLogin} setOpen={setOpenFormLogin} setRegisOpen={setOpenFormRegister} />}
             {openFormRegister && <RegisterForm open={openFormRegister} setOpen={setOpenFormRegister} setLoginOpen={setOpenFormLogin} />}
             {openBuySuccess && (
-                <DialogSuccess open={openBuySuccess} setOpen={setOpenBuySuccess}/>
+                <DialogSuccess open={openBuySuccess} setOpen={setOpenBuySuccess} />
             )}
             {loading && <Loader />}
         </div>

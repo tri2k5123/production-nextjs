@@ -10,13 +10,13 @@ import { useRouter } from "next/navigation";
 export default function InfoShipping({ matchUserInfo }) {
     const { data: session } = useSession();
     const { addedCart, deletedItemCart, setDeletedItemCart, setOpenFormRegister } = useContext(StateGlobalContext);
-console.log("matchUserInfo: ", matchUserInfo)
+    console.log("matchUserInfo: ", matchUserInfo)
 
     const route = useRouter();
 
-    const [ openBuySuccess, setOpenBuySuccess ] = useState(false);
+    const [openBuySuccess, setOpenBuySuccess] = useState(false);
 
-    const [ userCart, setUserCart ] = useState();
+    const [userCart, setUserCart] = useState();
     const [nameCustomer, setNameCustomer] = useState(matchUserInfo?.name);
     const [phone, setPhone] = useState(matchUserInfo?.phone);
     const [address, setAddress] = useState(matchUserInfo?.address);
@@ -33,51 +33,51 @@ console.log("matchUserInfo: ", matchUserInfo)
             const { userCart } = await resGetUserCart.json();
             setUserCart(userCart);
         } catch (error) {
-            
+
         }
     }
-    
+
     async function handleCreateOrder(e) {
-        if(session) {
-            const total = userCart?.cartInfo.reduce((initValue, itemCart) => {
-                return initValue + itemCart.subPrice;
-            }, 0)
-            const data = {
-                email: matchUserInfo?.email,
-                name: nameCustomer,
-                phone,
-                address,
-                note,
-                isFinished: false,
-                total,
-                orderInfo: [
-                    ...userCart?.cartInfo,
-                ]
-            }
-            try {
-                const resCreateOrder = await fetch("http://localhost:3000/api/order", {
-                    method: "POST",
-                    headers: {
-                        "content-type": "application/json"
-                    },
-                    body: JSON.stringify({ data })
-                })
-                if(resCreateOrder.ok) {
-                    const resDeleteUserCart = await fetch(`http://localhost:3000/api/cart?id=${userCart?._id}`, {
-                        method: "DELETE",
-                    })
-                    if(resDeleteUserCart.ok) {
-                        setOpenBuySuccess(true);
-                        setDeletedItemCart(prev => !prev);
-                    }
-                    
-                }
-            } catch (error) {
-                
-            }
-        } else {
-            setOpenFormRegister(true)
+        if (!userCart?.cartInfo || userCart?.cartInfo?.length == 0) {
+            return;
         }
+        const total = userCart?.cartInfo.reduce((initValue, itemCart) => {
+            return initValue + itemCart.subPrice;
+        }, 0)
+        const data = {
+            email: matchUserInfo?.email,
+            name: nameCustomer,
+            phone,
+            address,
+            note,
+            isFinished: false,
+            total,
+            orderInfo: [
+                ...userCart?.cartInfo,
+            ]
+        }
+        try {
+            const resCreateOrder = await fetch("http://localhost:3000/api/order", {
+                method: "POST",
+                headers: {
+                    "content-type": "application/json"
+                },
+                body: JSON.stringify({ data })
+            })
+            if (resCreateOrder.ok) {
+                const resDeleteUserCart = await fetch(`http://localhost:3000/api/cart?id=${userCart?._id}`, {
+                    method: "DELETE",
+                })
+                if (resDeleteUserCart.ok) {
+                    setOpenBuySuccess(true);
+                    setDeletedItemCart(prev => !prev);
+                }
+
+            }
+        } catch (error) {
+
+        }
+
     }
 
     return (
@@ -143,7 +143,7 @@ console.log("matchUserInfo: ", matchUserInfo)
                     <div className="mb-5">
                         <label className="flex items-center border border-solid border-[#D9D9D9] rounded-2xl py-4 px-5 cursor-pointer transition-all opacity-60 payment-method-item__active">
                             <span className="min-w-9 max-w-14 max-h-9">
-                                <img src="/asset/img/COD.svg" className="my-0 mx-6"/>
+                                <img src="/asset/img/COD.svg" className="my-0 mx-6" />
                             </span>
                             <span className="font-serif font-sm font-normal text-[#231f20] ml-5">
                                 <p>Cash On Delivery (COD)</p>
@@ -157,7 +157,7 @@ console.log("matchUserInfo: ", matchUserInfo)
                 </button>
             </div>
             {openBuySuccess && (
-                <DialogSuccess open={openBuySuccess} setOpen={setOpenBuySuccess}/>
+                <DialogSuccess open={openBuySuccess} setOpen={setOpenBuySuccess} />
             )}
         </div>
     )
