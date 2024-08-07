@@ -149,7 +149,7 @@ function SideDetailProduct({ product }) {
                             value="-"
                             onClick={handleMinusQuantity}
                         />
-                        <div className="w-[60px] h-8 border-0 float-left p-0 text-center text-xl">{quantityChosen}</div>
+                        <div className="w-[60px] h-8 border-0 float-left p-0 text-center text-xl">{remaining ? quantityChosen : 0}</div>
                         <input
                             type="button"
                             className="cursor-pointer relative inline-block w-10 h-8 border border-solid border-[#0e1c224d] bg-none text-2xl text-[#0E1C22] float-left p-0"
