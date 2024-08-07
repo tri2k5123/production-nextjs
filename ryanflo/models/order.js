@@ -29,6 +29,10 @@ const orderSchema = new Schema({
         type: Number,
         require: true
     },
+    paymentMethod: {
+        type: String,
+        require: true
+    },
     orderInfo: {
         type: Array,
         require: true

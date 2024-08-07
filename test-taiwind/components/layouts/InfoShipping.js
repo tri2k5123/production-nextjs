@@ -6,15 +6,38 @@ import DialogSuccess from "./DialogSuccess";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
+import Image from "next/image"; 
+import { Dialog, DialogBackdrop, DialogPanel } from '@headlessui/react'
+
+const listPaymentMethod = [
+    {
+        icon: "/asset/img/COD.svg",
+        name: "COD",
+        title: "Cash On Delivery (COD)",
+        desc: "Pay when you receive"
+    },
+    {
+        icon: "/asset/img/banking.png",
+        name: "Credit card",
+        title: "Credit card",
+        desc: "Make payments online"
+    }
+]
+
 
 export default function InfoShipping({ matchUserInfo }) {
+    // add method payment
+    const [currentPayment, setCurrentPayment] = useState("COD");
+    const [openInstruction, setOpenInstruction] = useState(false);
+    
+    // end
     const { data: session } = useSession();
     const { addedCart, deletedItemCart, setDeletedItemCart, setOpenFormRegister } = useContext(StateGlobalContext);
-    console.log("matchUserInfo: ", matchUserInfo)
+
 
     const route = useRouter();
 
-    const [openBuySuccess, setOpenBuySuccess] = useState(false);
+    const [openBuySuccess, setOpenBuySuccess] = useState(true);
 
     const [userCart, setUserCart] = useState();
     const [nameCustomer, setNameCustomer] = useState(matchUserInfo?.name);
@@ -37,47 +60,98 @@ export default function InfoShipping({ matchUserInfo }) {
         }
     }
 
+
     async function handleCreateOrder(e) {
-        if (!userCart?.cartInfo || userCart?.cartInfo?.length == 0) {
-            return;
-        }
-        const total = userCart?.cartInfo.reduce((initValue, itemCart) => {
-            return initValue + itemCart.subPrice;
-        }, 0)
-        const data = {
-            email: matchUserInfo?.email,
-            name: nameCustomer,
-            phone,
-            address,
-            note,
-            isFinished: false,
-            total,
-            orderInfo: [
-                ...userCart?.cartInfo,
-            ]
-        }
-        try {
-            const resCreateOrder = await fetch("http://localhost:3000/api/order", {
-                method: "POST",
-                headers: {
-                    "content-type": "application/json"
-                },
-                body: JSON.stringify({ data })
-            })
-            if (resCreateOrder.ok) {
-                const resDeleteUserCart = await fetch(`http://localhost:3000/api/cart?id=${userCart?._id}`, {
-                    method: "DELETE",
-                })
-                if (resDeleteUserCart.ok) {
-                    setOpenBuySuccess(true);
-                    setDeletedItemCart(prev => !prev);
-                }
+        // if (!userCart?.cartInfo || userCart?.cartInfo?.length == 0) {
+        //     return;
+        // }
+        // const total = userCart?.cartInfo.reduce((initValue, itemCart) => {
+        //     return initValue + itemCart.subPrice;
+        // }, 0)
+        // const data = {
+        //     email: matchUserInfo?.email,
+        //     name: nameCustomer,
+        //     phone,
+        //     address,
+        //     note,
+        //     isFinished: false,
+        //     total,
+        //     paymentMethod: currentPayment,
+        //     orderInfo: [
+        //         ...userCart?.cartInfo,
+        //     ]
+        // }
 
-            }
-        } catch (error) {
+        if (currentPayment == "COD") {
+            console.log("cod")
+            // try {
+            //     const resCreateOrder = await fetch("http://localhost:3000/api/order", {
+            //         method: "POST",
+            //         headers: {
+            //             "content-type": "application/json"
+            //         },
+            //         body: JSON.stringify({ data })
+            //     })
+            //     if (resCreateOrder.ok) {
+            //         const resDeleteUserCart = await fetch(`http://localhost:3000/api/cart?id=${userCart?._id}`, {
+            //             method: "DELETE",
+            //         })
+            //         if (resDeleteUserCart.ok) {
+            //             setOpenBuySuccess(true);
+            //             setDeletedItemCart(prev => !prev);
+            //         }
+            //     }
+            // } catch (error) {
 
+            // }
+        } else {
+            setOpenInstruction(true);
+            console.log("credit")
         }
+    }
 
+    async function handleCashOnline() {
+        setOpenInstruction(false)
+        // if (!userCart?.cartInfo || userCart?.cartInfo?.length == 0) {
+        //     return;
+        // }
+        // const total = userCart?.cartInfo.reduce((initValue, itemCart) => {
+        //     return initValue + itemCart.subPrice;
+        // }, 0)
+        // const data = {
+        //     email: matchUserInfo?.email,
+        //     name: nameCustomer,
+        //     phone,
+        //     address,
+        //     note,
+        //     isFinished: false,
+        //     total,
+        //     paymentMethod: currentPayment,
+        //     orderInfo: [
+        //         ...userCart?.cartInfo,
+        //     ]
+        // }
+        // try {
+        //     const resCreateOrder = await fetch("http://localhost:3000/api/order", {
+        //         method: "POST",
+        //         headers: {
+        //             "content-type": "application/json"
+        //         },
+        //         body: JSON.stringify({ data })
+        //     })
+        //     if (resCreateOrder.ok) {
+        //         const resDeleteUserCart = await fetch(`http://localhost:3000/api/cart?id=${userCart?._id}`, {
+        //             method: "DELETE",
+        //         })
+        //         if (resDeleteUserCart.ok) {
+        //             setOpenBuySuccess(true);
+        //             setDeletedItemCart(prev => !prev);
+        //         }
+        //     }
+        // } catch (error) {
+
+        // }
+        console.log("paid online")
     }
 
     return (
@@ -141,15 +215,23 @@ export default function InfoShipping({ matchUserInfo }) {
                 </div>
                 <div className="">
                     <div className="mb-5">
-                        <label className="flex items-center border border-solid border-[#D9D9D9] rounded-2xl py-4 px-5 cursor-pointer transition-all opacity-60 payment-method-item__active">
-                            <span className="min-w-9 max-w-14 max-h-9">
-                                <img src="/asset/img/COD.svg" className="my-0 mx-6" />
-                            </span>
-                            <span className="font-serif font-sm font-normal text-[#231f20] ml-5">
-                                <p>Cash On Delivery (COD)</p>
-                                <p>Pay when you receive</p>
-                            </span>
-                        </label>
+                        {/* add method */}
+                        {listPaymentMethod.map(method => (
+                            <label
+                                onClick={() => setCurrentPayment(method.name)}
+                                className={`mb-4 flex items-center border border-solid border-[#D9D9D9] rounded-2xl py-4 px-5 cursor-pointer transition-all opacity-60 ${method.name === currentPayment && 'payment-method-item__active'}`}
+                            >
+                                <span className="min-w-9 max-w-14 max-h-9">
+                                    <Image width={32} height={32} src={method.icon} className="" />
+                                </span>
+                                <span className="font-serif font-sm font-normal text-[#231f20] ml-5">
+                                    <p>{method.title}</p>
+                                    <p className="text-sm">{method.desc}</p>
+                                </span>
+                            </label>
+
+                        ))}
+                        {/* end */}
                     </div>
                 </div>
                 <button onClick={handleCreateOrder} className="checkout btn">
@@ -159,6 +241,56 @@ export default function InfoShipping({ matchUserInfo }) {
             {openBuySuccess && (
                 <DialogSuccess open={openBuySuccess} setOpen={setOpenBuySuccess} />
             )}
+            <Dialog open={openInstruction} onClose={setOpenInstruction} className="relative z-50">
+                <DialogBackdrop
+                    transition
+                    className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in"
+                />
+
+                <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
+                    <div className="flex min-h-full items-center justify-center p-4 text-center sm:items-center sm:p-0">
+                        <DialogPanel
+                            transition
+                            className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in sm:my-8 sm:w-full sm:max-w-lg data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95"
+                        >
+                            <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                                <div className='text-xl font-semibold text-gray-900'>
+                                    Credit card payment process
+                                </div>
+                                <div className="my-2 text-sm text-gray-500">
+                                    <p>Step 1: Scan the QR code below and make a money transfer</p>
+                                    <p>The content of the transfer is "phone number - your name"</p>
+                                    
+                                </div>
+                                <img src='/asset/img/qrbank.jpg' className='w-full' />
+                                <div className="mt-2 text-sm text-gray-500">
+                                    <p>Step 2: After successfully transferring money. Please click the "Confirm" button below</p>
+                                    <p className=""><span className='text-gray-700 text-base font-semibold'>Note:</span> After about 30 minutes, Ryan's staff will call to confirm your order. Please hold the line. Best regards!</p>
+                                    
+                                </div> 
+                            </div>
+                            <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                                <button
+                                    type="button"
+                                    onClick={handleCashOnline}
+                                    className="inline-flex w-full justify-center rounded-md bg-[#16a34a] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[#22b659] sm:ml-3 sm:w-auto"
+                                >
+                                    Confirm
+                                </button>
+                                <button
+                                    type="button"
+                                    data-autofocus
+                                    onClick={() => setOpenInstruction(false)}
+                                    className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
+                                >
+                                    Cancel
+                                </button>
+                            </div>
+                        </DialogPanel>
+                    </div>
+                </div>
+            </Dialog>
+
         </div>
     )
 }

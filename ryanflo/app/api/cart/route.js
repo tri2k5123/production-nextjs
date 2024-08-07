@@ -50,6 +50,7 @@ export async function GET(req) {
     }
 }
 export async function PATCH(req) {
+    // DELETE của client
     try {
         const { i, email } = await req.json();
         await connectDB();
@@ -73,6 +74,7 @@ export async function PATCH(req) {
     }
 }
 export async function DELETE(req) {
+    // DELETE của admin
     try {
         const id = req.nextUrl.searchParams.get("id");
         await connectDB();

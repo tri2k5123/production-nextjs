@@ -85,7 +85,7 @@ export default function SummaryOrderPage({ params }) {
                                 </div>
                                 <div>
                                     <h3 className="text-[#111827]">Payment Information</h3>
-                                    <p className="text-[#6B7280]">COD</p>
+                                    <p className="text-[#6B7280]">{order?.paymentMethod}</p> 
                                 </div>
                             </div>
                         </div>

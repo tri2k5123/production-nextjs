@@ -2,6 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
+
+/* Remove scrollbar */
+.remove-scrollbar::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+    border-radius: 0px;
+    display: none; 
+}
+
+.remove-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.remove-scrollbar::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 0px;
+}
+
+.remove-scrollbar::-webkit-scrollbar-thumb:hover {
+    /* background: #1e2238; */
+    background: transparent;
+}
+
+
 /* global */
 * {
     @apply p-0 m-0 box-border list-none no-underline

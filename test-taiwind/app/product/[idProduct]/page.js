@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 export default function ProductPage({ params }) {
     const [ product, setProduct ] = useState();
-
+    console.log("product: ", product)
     useEffect(() => {
         getProduct();
     }, [params.idProduct])

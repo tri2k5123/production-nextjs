@@ -11,7 +11,7 @@ import UserInfo from "@/models/userInfo";
 export async function GET(req) {
     try {
         const emailSession = req.nextUrl.searchParams.get("email");
-        
+         
         await connectDB();
         const users = await User.find();
         const user = await users.find((user) => {

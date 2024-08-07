@@ -18,7 +18,7 @@ function ListOrder() {
     }, [addedCart, deletedItemCart])
     async function getUserCart() {
         try {
-            const resGetUserCart = await fetch(`http://localhost:3000/api/cart?email=${session?.user?.email}`, {
+            const resGetUserCart = await fetch(`http://localhost:3000/api/cart?email=${'minhtri@gmail.com'}`, {
                 method: "GET",
             })
             const { userCart } = await resGetUserCart.json();
@@ -72,7 +72,7 @@ function ListOrder() {
                 </div>
             </div>
             {userCart && <SummaryOrder listCart={userCart?.cartInfo} />}
-        </>
+        </> 
     )
 }
 export default memo(ListOrder)

@@ -2,10 +2,10 @@ import { SparklesIcon, FireIcon, StarIcon } from '@heroicons/react/20/solid'
 
 // poster
 export const posters = [
-    `url(/asset/img/poster.png)`,
-    `url(/asset/img/slideshow_1.webp)`,
-    `url(/asset/img/slideshow_2.webp)`,
-  ]
+  `url(/asset/img/poster.png)`,
+  `url(/asset/img/slideshow_1.webp)`,
+  `url(/asset/img/slideshow_2.webp)`,
+]
 
 // About
 export const features = [
@@ -78,3 +78,18 @@ export const letterContent = {
   title: 'Your review is our pleasure.',
   desc: "Don't hesitate to comment if you have any questions, interface errors or even something you don't like about our website."
 }
+
+export const listPaymentMethod = [
+  {
+    icon: "/asset/img/COD.svg",
+    name: "COD",
+    title: "Cash On Delivery (COD)",
+    desc: "Pay when you receive"
+  },
+  {
+    icon: "/asset/img/banking.png",
+    name: "Credit card",
+    title: "Credit card",
+    desc: "Make payments online"
+  }
+]

@@ -4,7 +4,7 @@ import { useEffect, useLayoutEffect, useState } from "react"
 export default function HomeCTASection() {
   return (
     <div className="mb-12">
-        <div className="h-screen bg-cover bg-no-repeat bg-top transition-all duration-1000" style={{ backgroundImage: `url(/asset/img/poster.png)` }}>
+        <div className="h-screen bg-cover bg-no-repeat bg-top" style={{ backgroundImage: `url(/asset/img/poster.png)` }}>
           {/* <svg
             viewBox="0 0 1024 1024"
             className="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-y-1/2 [mask-image:radial-gradient(closest-side,white,transparent)] sm:left-full sm:-ml-80 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2 lg:translate-y-0"

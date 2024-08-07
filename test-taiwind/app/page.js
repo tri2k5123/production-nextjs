@@ -16,7 +16,7 @@ export default function Home() {
   // console.log(session)
   
   return (
-    <>
+    <div className="">
       <HomeCTASection/>
       <HomeAbout/>
       <VideoHighlights />
@@ -27,6 +27,6 @@ export default function Home() {
       {/* <HomeTestimonials/> */}
       <HomeNewLetterSection/>
       <HomePanel/>
-    </>
+    </div>
   );
 }

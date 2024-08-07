@@ -8,7 +8,14 @@ import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
 import Loader from "./loader/Loader";
 
+import Image from "next/image";
+import { Dialog, DialogBackdrop, DialogPanel } from '@headlessui/react'
+import { listPaymentMethod } from "../constants";
+
 export default function InfoShipping({ matchUserInfo }) {
+    const [currentPayment, setCurrentPayment] = useState("COD");
+    const [openInstruction, setOpenInstruction] = useState(false);
+
     const { data: session } = useSession();
     const { addedCart, deletedItemCart, setDeletedItemCart, openFormLogin, setOpenFormLogin,
         openFormRegister, setOpenFormRegister } = useContext(StateGlobalContext);
@@ -41,6 +48,10 @@ export default function InfoShipping({ matchUserInfo }) {
         if (!userCart?.cartInfo || userCart?.cartInfo?.length == 0) {
             return;
         }
+        if (currentPayment == "Credit card") {
+            setOpenInstruction(true);
+            return;
+        }
 
         setLoading(true);
         const total = userCart?.cartInfo.reduce((initValue, itemCart) => {
@@ -54,6 +65,7 @@ export default function InfoShipping({ matchUserInfo }) {
             note,
             isFinished: false,
             total,
+            paymentMethod: currentPayment,
             orderInfo: [
                 ...userCart?.cartInfo,
             ]
@@ -77,8 +89,51 @@ export default function InfoShipping({ matchUserInfo }) {
             }
         } catch (error) {
 
+        } finally {
+            setLoading(false);
         }
-        setLoading(false);
+    }
+    async function handleCashOnline() {
+        setOpenInstruction(false)
+        setLoading(true);
+        const total = userCart?.cartInfo.reduce((initValue, itemCart) => {
+            return initValue + itemCart.subPrice;
+        }, 0)
+        const data = {
+            email: matchUserInfo?.email,
+            name: nameCustomer,
+            phone,
+            address,
+            note,
+            isFinished: false,
+            total,
+            paymentMethod: currentPayment,
+            orderInfo: [
+                ...userCart?.cartInfo,
+            ]
+        }
+        try {
+            const resCreateOrder = await fetch("/api/order", {
+                method: "POST",
+                headers: {
+                    "content-type": "application/json"
+                },
+                body: JSON.stringify({ data })
+            })
+            if (resCreateOrder.ok) {
+                const resDeleteUserCart = await fetch(`/api/cart?id=${userCart?._id}`, {
+                    method: "DELETE",
+                })
+                if (resDeleteUserCart.ok) {
+                    setOpenBuySuccess(true);
+                    setDeletedItemCart(prev => !prev);
+                }
+            }
+        } catch (error) {
+
+        } finally {
+            setLoading(false);
+        }
     }
 
     return (
@@ -142,15 +197,23 @@ export default function InfoShipping({ matchUserInfo }) {
                 </div>
                 <div className="">
                     <div className="mb-5">
-                        <label className="flex items-center border border-solid border-[#D9D9D9] rounded-2xl py-4 px-5 cursor-pointer transition-all opacity-60 payment-method-item__active">
-                            <span className="min-w-9 max-w-14 max-h-9">
-                                <img src="/asset/img/COD.svg" className="my-0 mx-6" />
-                            </span>
-                            <span className="font-serif font-sm font-normal text-[#231f20] ml-5">
-                                <p>Cash On Delivery (COD)</p>
-                                <p>Pay when you receive</p>
-                            </span>
-                        </label>
+                        {/* add method */}
+                        {listPaymentMethod.map(method => (
+                            <label
+                                onClick={() => setCurrentPayment(method.name)}
+                                className={`mb-4 flex items-center border border-solid border-[#D9D9D9] rounded-2xl py-4 px-5 cursor-pointer transition-all opacity-60 ${method.name === currentPayment && 'payment-method-item__active'}`}
+                            >
+                                <span className="min-w-9 max-w-14 max-h-9">
+                                    <Image width={32} height={32} src={method.icon} className="" />
+                                </span>
+                                <span className="font-serif font-sm font-normal text-[#231f20] ml-5">
+                                    <p>{method.title}</p>
+                                    <p className="text-sm">{method.desc}</p>
+                                </span>
+                            </label>
+
+                        ))}
+                        {/* end */}
                     </div>
                 </div>
                 <button onClick={handleCreateOrder} className="checkout btn">
@@ -163,6 +226,55 @@ export default function InfoShipping({ matchUserInfo }) {
                 <DialogSuccess open={openBuySuccess} setOpen={setOpenBuySuccess} />
             )}
             {loading && <Loader />}
+            <Dialog open={openInstruction} onClose={setOpenInstruction} className="relative z-50">
+                <DialogBackdrop
+                    transition
+                    className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in"
+                />
+
+                <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
+                    <div className="flex min-h-full items-center justify-center p-4 text-center sm:items-center sm:p-0">
+                        <DialogPanel
+                            transition
+                            className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in sm:my-8 sm:w-full sm:max-w-lg data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95"
+                        >
+                            <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                                <div className='text-xl font-semibold text-gray-900'>
+                                    Credit card payment process
+                                </div>
+                                <div className="my-2 text-sm text-gray-500">
+                                    <p>Step 1: Scan the QR code below and make a money transfer</p>
+                                    <p>The content of the transfer is "phone number - your name"</p>
+
+                                </div>
+                                <img src='/asset/img/qrbank.jpg' className='w-full' />
+                                <div className="mt-2 text-sm text-gray-500">
+                                    <p>Step 2: After successfully transferring money. Please click the "Confirm" button below</p>
+                                    <p className=""><span className='text-gray-700 text-base font-semibold'>Note:</span> After about 30 minutes, Ryan's staff will call to confirm your order. Please hold the line. Best regards!</p>
+
+                                </div>
+                            </div>
+                            <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                                <button
+                                    type="button"
+                                    onClick={handleCashOnline}
+                                    className="inline-flex w-full justify-center rounded-md bg-[#16a34a] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[#22b659] sm:ml-3 sm:w-auto"
+                                >
+                                    Confirm
+                                </button>
+                                <button
+                                    type="button"
+                                    data-autofocus
+                                    onClick={() => setOpenInstruction(false)}
+                                    className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
+                                >
+                                    Cancel
+                                </button>
+                            </div>
+                        </DialogPanel>
+                    </div>
+                </div>
+            </Dialog>
         </div>
     )
 }

@@ -44,10 +44,12 @@ export default function DialogSuccess({ open, setOpen }) {
                                             <Dialog.Title as="h3" className="text-base font-semibold leading-6 text-gray-900">
                                                 Payment success
                                             </Dialog.Title>
-                                            <div className="mt-2">
-                                                <p className="text-sm text-gray-500">
+                                            <div className="mt-2 text-sm text-gray-500">
+                                                <p className="">
                                                 Your order is being processed. Go to view your placed order or select "cancel" to return to the home page.
                                                 </p>
+                                                <p className=""><span className='text-gray-700 text-base font-semibold'>Note:</span> After about 30 minutes, Ryan's staff will call to confirm your order. Please hold the line. Best regards!</p>
+
                                             </div>
                                         </div>
                                     </div>

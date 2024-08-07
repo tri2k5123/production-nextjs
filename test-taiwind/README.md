@@ -38,6 +38,12 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 
 <!-- 
+- sửa phần schema order của DB
+- sửa trang checkout
+- thêm ảnh
+- sửa header trên mobile
+- thay poster
+- sửa 1 xíu bên summary order
 - cài thư viện mới{
 
 }
