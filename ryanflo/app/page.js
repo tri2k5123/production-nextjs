@@ -15,7 +15,7 @@ export default function Home() {
     <>
       <HomeCTASection/>
       <HomeAbout/>
-      <VideoHighlights/>
+      {/* <VideoHighlights/> */}
       {/* <HomeProductOverview/> */}
       <HomeCategoryPreview/>
       {/* <HomeProductFeature/> */}
