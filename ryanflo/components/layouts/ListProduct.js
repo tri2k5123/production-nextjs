@@ -9,7 +9,7 @@ function ListProduct({ params, product }) {
                 <img className="product-img" src={product.imgs[0]} alt="..." />
                 <img src={product.imgs[1]} alt="" className="product-img-hover" />
                 <div className="product-name">{product.productName}</div>
-                {product.category === "sale" ?
+                {product.percentPrice ?
                     (
                         <div className="flex justify-center items-center mt-3 text-color-text text-xs pb-5">
                             <div className="text-white bg-color-price p-1">-{product.percentPrice}%</div>
