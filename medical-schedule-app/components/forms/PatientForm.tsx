@@ -50,7 +50,6 @@ const PatientForm = () => {
             };
 
             const newUser = await createUser(user);
-            console.log("newUser: ", newUser)
             if (newUser) {
                 route.push(`/patients/${newUser.$id}/register`);
             }
@@ -103,3 +102,56 @@ const PatientForm = () => {
 }
 
 export default PatientForm
+
+/* user
+{
+    $createdAt: "2024-08-09T01:42:22.730+00:00"
+    $id: "66b574e600185c18bd7f"
+    $updatedAt: "2024-08-09T01:42:22.730+00:00"
+    accessedAt: ""
+    email: "my@gmail.com"
+    emailVerification: false
+    hash: "argon2"
+    hashOptions: {
+        memoryCost: 2048
+        threads: 3
+        timeCost: 4
+        type: "argon2"
+        [[Prototype]]: Object
+    }
+    labels: []
+    mfa: false
+    name: "mymymy"
+    password: null
+    passwordUpdate: ""
+    phone: "+8423146789"
+    phoneVerification: false
+    prefs: {}
+    registration: "2024-08-09T01:42:22.729+00:00"
+    status: true
+    targets: [
+        {
+            $createdAt: "2024-08-09T01:42:22.782+00:00"
+            $id: "66b573febeef18c53c4d"
+            $updatedAt: "2024-08-09T01:42:22.782+00:00"
+            identifier: "my@gmail.com"
+            name: ""
+            providerId: null
+            providerType: "email"
+            userId: "66b574e600185c18bd7f"
+        },
+        {
+            1: $createdAt: "2024-08-09T01:42:22.807+00:00"
+            $id: "66b573fec512e1dfdb6b"
+            $updatedAt: "2024-08-09T01:42:22.807+00:00"
+            identifier: "+8423146789"
+            name: ""
+            providerId: null
+            providerType: "sms"
+            userId: "66b574e600185c18bd7f"
+        }
+    ]
+}
+
+
+*/

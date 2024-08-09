@@ -35,6 +35,20 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
+<!-- 
++ giữ phiên cho người dùng
++ điền sẵn thông tin từ onboarding sang register form
++  hiện những appointment đã đặt
++ các đơn mới ko hiện lên dù fresh (chỉ có set status nó mới lấy dữ liệu mới)
++ khi mất token access phải redirect admin lại homepage
++ recovery code twilio: 7GTD7ZAEMRE8NPPP4YC7XZSY 
+ -->
+
+<!-- feature of sentry
++ monitor the bugs as they happen and fix them immediately 
++ and of course after that we'll also add support for SMS
++ tracking the errors in the application and tracking the traces and
+ -->
 
 <!-- 1/8/2024
     name: CareSmart | SMART (S: schedule, M: medical, A: app, TR: trí)
@@ -57,9 +71,13 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
     + npx shadcn-ui@latest add checkbox
 
     + npx shadcn-ui@latest add alert-dialog
+    + npx shadcn-ui@latest add input-otp
+    + npx shadcn-ui@latest add table
+    + npm install @tanstack/react-table
+    + npx shadcn-ui@latest add dropdown-menu
+    + npx shadcn-ui@latest add dialog
 
-
-
+    + npx @sentry/wizard@latest -i nextjs
 
 
 
