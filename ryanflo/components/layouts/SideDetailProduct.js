@@ -7,6 +7,7 @@ import { addDotToPrice, sizes } from "./admin/generalData";
 import { useSession } from "next-auth/react";
 import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
+import { useRouter } from "next/navigation";
 
 function SideDetailProduct({ product }) {
     const { setAddedCart, openFormLogin, setOpenFormLogin,
@@ -14,6 +15,8 @@ function SideDetailProduct({ product }) {
     
     const { data: session } = useSession();
 
+    const router = useRouter();
+    
     const { _id, productName, colors, sizes: listSize, basePrice, imgs, category, initialPrice, percentPrice, remaining } = product;
 
     const [showToast, setShowToast] = useState(false);
