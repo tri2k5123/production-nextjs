@@ -5,11 +5,17 @@ import Link from "next/link";
 import Toast from "@/components/layouts/Toast";
 import { addDotToPrice, sizes } from "./admin/generalData";
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import LoginForm from "./LoginForm";
+import RegisterForm from "./RegisterForm";
 
 function SideDetailProduct({ product }) {
-    const { setAddedCart, setOpenFormRegister } = useContext(StateGlobalContext);
+    const { setAddedCart, openFormLogin, setOpenFormLogin,
+        openFormRegister, setOpenFormRegister } = useContext(StateGlobalContext);
 
     const { data: session } = useSession();
+
+    const router = useRouter();
 
     const { _id, productName, colors, sizes: listSize, basePrice, imgs, category, initialPrice, percentPrice, remaining } = product;
 
@@ -41,6 +47,7 @@ function SideDetailProduct({ product }) {
             clearTimeout(toastInterval)
         }
     }, [showToast])
+
     async function handleAddCart() {
         if (session) {
             const subPrice = quantityChosen * basePrice;
@@ -79,6 +86,8 @@ function SideDetailProduct({ product }) {
             setOpenFormRegister(true)
         }
     }
+
+
     return (
         <>
             <div className="text-3xl">{productName}</div>
@@ -160,13 +169,15 @@ function SideDetailProduct({ product }) {
                     <>
                         <div className="inline-block bg-white text-[#0E1C22] py-1.5 px-0 text-base border border-solid border-[#0E1C22] w-full m-0 text-center h-8 cursor-pointer" onClick={handleAddCart}>Add To Cart</div>
                         <div className="flex mb-10 mt-1 flex-wrap col-span-full cursor-pointer">
-                            <Link href={"/checkout"} className="buy-now btn mt-2">Buy Now</Link>
+                            <div onClick={() => {session ? router.push("/checkout") : setOpenFormRegister(true) }} className="buy-now btn mt-2">Buy Now</div>
                         </div>
                     </>
                 ) : (
                     <div className="inline-block bg-white text-[#0E1C22] py-1.5 px-0 text-base border border-solid border-[#0E1C22] w-full m-0 text-center h-8 cursor-default">Sold out</div>
                 )}
                 {showToast && <Toast setShowToast={setShowToast} title={`Successfully saved!`} description={`The product has been added to cart.`}/>}
+                {openFormLogin && <LoginForm open={openFormLogin} setOpen={setOpenFormLogin} setRegisOpen={setOpenFormRegister} />}
+                {openFormRegister && <RegisterForm open={openFormRegister} setOpen={setOpenFormRegister} setLoginOpen={setOpenFormLogin} />}
             </div>
         </>
     )

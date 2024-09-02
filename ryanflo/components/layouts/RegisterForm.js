@@ -14,8 +14,8 @@ export default  function RegisterForm({ open, setOpen, setLoginOpen }) {
         if(!email || !password) {
             setError("All fields are necessary.");
             return;
-        } else if(password < 8) {
-            setError("8 characters minimum");
+        } else if(password.length < 4) {
+            setError("Password minimum 4 characters");
             return;
         }
         try {

@@ -162,7 +162,7 @@ function SideDetailProduct({ product }) {
                     <>
                         <div className="inline-block bg-white text-[#0E1C22] py-1.5 px-0 text-base border border-solid border-[#0E1C22] w-full m-0 text-center h-8 cursor-pointer" onClick={handleAddCart}>Add To Cart</div>
                         <div className="flex mb-10 mt-1 flex-wrap col-span-full cursor-pointer">
-                            <Link href={"/checkout"} className="buy-now btn mt-2">Buy Now</Link>
+                            <div onClick={() => {session ? router.push("/checkout") : setOpenFormRegister(true) }} className="buy-now btn mt-2">Buy Now</div>
                         </div>
                     </>
                 ) : (

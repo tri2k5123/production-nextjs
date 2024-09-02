@@ -15,27 +15,28 @@ export default  function RegisterForm({ open, setOpen, setLoginOpen }) {
             setError("All fields are necessary.");
             return;
         }
-        // if(password < 8) {
-        //     setError("6 characters minimum");
-        //     return;
-        // }
+        if(password.length < 8) {
+            setError("8 characters minimum");
+            return;
+        }
         try {
-            const resProfile = await fetch("api/profile", {
-                method: "POST",
-                headers: {
-                    "Content-type": "application/json"
-                },
-                body: JSON.stringify({ email, password })
-            })
+            alert("registered")
+            // const resProfile = await fetch("api/profile", {
+            //     method: "POST",
+            //     headers: {
+            //         "Content-type": "application/json"
+            //     },
+            //     body: JSON.stringify({ email, password })
+            // })
             
-            if(resProfile.ok) {
-                const form = e.target;
-                form.reset();
-                setError("User registered")
-            } else {
-                setError("User already exist")
+            // if(resProfile.ok) {
+            //     const form = e.target;
+            //     form.reset();
+            //     setError("User registered")
+            // } else {
+            //     setError("User already exist")
 
-            }
+            // }
         } catch (error) {
             console.log("Error during registration: ", error);
         }
@@ -121,7 +122,7 @@ export default  function RegisterForm({ open, setOpen, setLoginOpen }) {
                                             <div>
                                                 <button
                                                     type="submit"
-                                                    className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                                                    className="flex w-full justify-center rounded-md bg-[#16B8FF] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-[#2098cb] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#16B8FF]"
                                                 >
                                                     Register
                                                 </button>
@@ -130,7 +131,7 @@ export default  function RegisterForm({ open, setOpen, setLoginOpen }) {
                                         <p className="mt-10 text-center text-sm text-gray-500">
                                             Already have an account?{' '}
                                             <span
-                                                className=" cursor-pointer font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+                                                className=" cursor-pointer font-semibold leading-6 text-[#16B8FF] hover:text-[#2098cb]"
                                                 onClick={() => {
                                                     setOpen(false)
                                                     setLoginOpen(true)
