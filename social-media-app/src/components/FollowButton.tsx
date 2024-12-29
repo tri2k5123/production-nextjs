@@ -26,18 +26,20 @@ const FollowButton = ({ userId, initialState }: FollowButtonProps) => {
       await queryClient.cancelQueries({ queryKey });
       const previousState = queryClient.getQueryData<FollowerInfo>(queryKey);
       queryClient.setQueryData<FollowerInfo>(queryKey, () => ({
-        followers: (  previousState?.followers || 0  ) + (previousState?.isFollowedByUser ? -1 : 1),
+        followers:
+          (previousState?.followers || 0) +
+          (previousState?.isFollowedByUser ? -1 : 1),
         isFollowedByUser: !previousState?.isFollowedByUser,
       }));
-      return { previousState }
+      return { previousState };
     },
     onError(error, variables, context) {
-        queryClient.setQueryData(queryKey, context?.previousState)
-        console.error(error);
-        toast({
-          variant: "destructive",
-          description: "Something went wrong. please try again."
-        })
+      queryClient.setQueryData(queryKey, context?.previousState);
+      console.error(error);
+      toast({
+        variant: "destructive",
+        description: "Something went wrong. please try again.",
+      });
     },
   });
   return (

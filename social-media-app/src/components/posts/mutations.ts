@@ -35,6 +35,8 @@ export function useDeletePostMutation() {
                 description: "Post deleted"
             })
             if(pathName === `/posts/${deletedPost.id}`) router.push("/")
+            // ở dưới cx đc nhưng thấy ở trên hợp lí hơn
+            // if(pathName === `/posts/${deletedPost.id}`) router.push(`/users/${deletedPost.user.username}`);
         },
         onError(error, variables, context) {
             console.error(error);

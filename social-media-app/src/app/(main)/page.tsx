@@ -16,7 +16,6 @@ export default async function Home() {
           </TabsList>
           <TabsContent value="for-you">
             <ForYouFeed />
-
           </TabsContent>
           <TabsContent value="following">
             <FollowingFeed />
