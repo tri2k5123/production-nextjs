@@ -14,7 +14,7 @@ export default function Comment({ comment }: CommentProps) {
     const { user } = useSession();
     return (
         <div className="flex gap-3 py-3 group/comment">
-            <span className="hidden sm:inline">
+            <span className="inline">
                 <UserTooltip user={comment.user}>
                     <Link href={`/users/${comment.user.username}`}>
                         <UserAvatar avatarUrl={comment.user.avatarUrl} size={40}/>
@@ -35,7 +35,7 @@ export default function Comment({ comment }: CommentProps) {
             {comment.user.id === user?.id && (
                 <CommentMoreButton
                     comment={comment}
-                    className="ms-auto opacity-0 transition-opacity group-hover/comment:opacity-100"
+                    className="ms-auto lg:opacity-0 transition-opacity group-hover/comment:opacity-100"
                 />
             )}
         </div>
