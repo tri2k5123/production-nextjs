@@ -34,13 +34,13 @@ const Post = ({ post }: PostProps) => {
               <UserAvatar avatarUrl={post.user.avatarUrl} />
             </Link>
           </UserTooltip>
-          <div>
+          <div className="flex-1">
             <UserTooltip user={post.user}>
               <Link
                 href={`/users/${post.user.username}`}
                 className="block font-medium hover:underline"
               >
-                {post.user.displayName}
+                <span className="line-clamp-1 break-all">{post.user.displayName}</span>
               </Link>
             </UserTooltip>
             <Link

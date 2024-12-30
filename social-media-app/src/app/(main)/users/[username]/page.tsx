@@ -66,7 +66,7 @@ export default async function ProfileDetail({
         <UserProfile user={user} loggedInUserId={loggedInUser.id}/>
         <div className="rounded-2xl bg-card p-5 shadow-sm">
           <h2 className="text-center text-2xl font-bold">
-            {user.displayName}&rsquo;s posts
+          <span className="line-clamp-1 break-all">Posts of {user.displayName}</span>
           </h2>
         </div>
         <UserPosts userId={user.id}/>
@@ -95,8 +95,8 @@ async function UserProfile({ user, loggedInUserId }: UserProfileProps) {
         <div className="flex flex-wrap gap-3 sm:flex-nowrap">
           <div className="me-auto space-y-3">
             <div className="">
-              <h1 className="text-3xl font-bold">{user.displayName}</h1>
-              <div className="text-muted-foreground">@{user.username}</div>
+              <h1 className="text-3xl font-bold line-clamp-1 break-all" title={user.displayName}>{user.displayName}</h1>
+              <div className="text-muted-foreground line-clamp-1 break-all">@{user.username}</div>
             </div>
             <div className="">Member since {formatDate(user.createdAt, "MMM d, yyyy")}</div>
             <div className="flex items-center gap-3">

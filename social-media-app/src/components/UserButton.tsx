@@ -38,8 +38,8 @@ export default function UserButton({ className }: UserButtonProps) {
           <UserAvatar avatarUrl={user?.avatarUrl} size={40} />
         </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent>
-        <DropdownMenuLabel>My Account {user?.displayName}</DropdownMenuLabel>
+      <DropdownMenuContent className="max-w-72 mr-4 lg:mr-0">
+        <DropdownMenuLabel><span className="line-clamp-1 break-all">My Account {user?.displayName}</span></DropdownMenuLabel>
         <DropdownMenuSeparator />
         <Link href={`/users/${user?.username}`}>
           <DropdownMenuItem>

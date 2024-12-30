@@ -21,17 +21,17 @@ export const loginSchema = z.object({
 export type LogInValues = z.infer<typeof loginSchema>;
 
 export const createPostSchema = z.object({
-    content: requiredString,
+    content: requiredString.max(2000, "Must be at most 2000 characters"),
     mediaIds: z.array(z.string()).max(5, "Cannot have more than 5 attachments")
 })
 
 export const updateUserProfileSchema = z.object({
-    displayName: requiredString,
+    displayName: requiredString.max(100, "Must be at most 100 characters"),
     bio: z.string().max(1000, "Must be at most 1000 characters")
 })
 
 export type updateUserProfileValues = z.infer<typeof updateUserProfileSchema>
 
 export const createCommentSchema = z.object({
-    content: requiredString
+    content: requiredString.max(500, "Must be at most 500 characters")
 })

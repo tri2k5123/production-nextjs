@@ -81,7 +81,7 @@ const PostEditor = () => {
           <EditorContent
             editor={editor}
             className={cn(
-              "max-h-40 w-full overflow-y-auto rounded-2xl bg-background px-5 py-3",
+              "max-h-40 w-full overflow-y-auto rounded-2xl bg-background px-5 py-3 remove-scrollbar",
               isDragActive && "outline-dashed",
             )}
             onPaste={onPaste}

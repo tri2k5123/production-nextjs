@@ -18,7 +18,7 @@ export default function MessagesButton({ initialState }: MessagesButtonProps) {
         .get(`/api/messages/unread-count`)
         .json<MessageCountInfo>(),
     initialData: initialState,
-    refetchInterval: 60 * 1000,
+    refetchInterval: 3600 * 1000,
   });
 
   return (

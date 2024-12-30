@@ -25,7 +25,7 @@ export default function Comment({ comment }: CommentProps) {
                 <div className="flex items-center gap-1 text-sm">
                     <UserTooltip user={comment.user}>
                         <Link href={`/users/${comment.user.username}`} className="font-medium hover:underline">
-                            {comment.user.displayName}
+                            {comment.user.displayName.slice(0, 20)}
                         </Link>
                     </UserTooltip>
                     <span className="text-muted-foreground">{formatRelativeDate(comment.createdAt)}</span>
